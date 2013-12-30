@@ -11,10 +11,10 @@ df_soundings <- get.sounding.stations()
 # Get the necessary parameters
 #
 # Beginning date
-bdate <- "2013010100"
+bdate <-
 
 # Ending date
-edate <- "2013123123"
+edate <-
 
 # Access type
 access <-
