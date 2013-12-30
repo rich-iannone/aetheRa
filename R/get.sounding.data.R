@@ -89,6 +89,9 @@ sounding_data <- getURL(data_URI)
 
 # Write the data to a file
 writeLines(sounding_data, con = "file:///Users/riannone/Dropbox/R Projects/test_FSL_sounding.txt", sep = "\n")
+
+# Read back the file as lines
+sounding_data_2 <- readLines(con = "file:///Users/riannone/Dropbox/R Projects/test_FSL_sounding.txt")
 }
 
 
