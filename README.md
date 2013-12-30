@@ -6,6 +6,7 @@ Tools to acquire and work with upper air data. Discover where the data is, read 
 Some features will include:
 
 - fetching a current listing of sounding sites from the NOAA Radiosonde database
+- creating skewT plots
 - finding the nearest sounding location or a set within geographic bounds
 - selection and retriveal of data for a sounding location over a specified time interval
 - creating a visualization of the sounding data for specific days or periods
