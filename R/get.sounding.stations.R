@@ -33,5 +33,6 @@ get.sounding.stations <- function(){
       prov_state <- mat.or.vec(nr = length(lines), nc = 1)
       country <- mat.or.vec(nr = length(lines), nc = 1)
     }
+    init[i] <- str_match(string = lines[i], pattern = "^([0-9A-Z]*)")[1,2]
   # Close function
 }
