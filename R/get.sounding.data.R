@@ -92,6 +92,13 @@ writeLines(sounding_data, con = "file:///Users/riannone/Dropbox/R Projects/test_
 
 # Read back the file as lines
 sounding_data_2 <- readLines(con = "file:///Users/riannone/Dropbox/R Projects/test_FSL_sounding.txt")
+
+# Verify that a new record is identified in the current line
+is_254 <- str_detect(sounding_data_2[1], "^    254")
+is_1 <- str_detect(sounding_data_2[1], "^      1")
+is_2 <- str_detect(sounding_data_2[1], "^      2")
+is_3 <- str_detect(sounding_data_2[1], "^      3")
+is_4_9 <- str_detect(sounding_data_2[1], "^      [4-9]")
 }
 
 
