@@ -102,6 +102,12 @@ is_4_9 <- str_detect(sounding_data_2[1], "^      [4-9]")
 
 header <- read.table(textConnection(sounding_data_2[1]),
            stringsAsFactors = FALSE)
+
+# If line is a header line, read it as such
+if (is_254 == TRUE) {
+  header <- read.table(textConnection(sounding_data_2[1]),
+                       stringsAsFactors = FALSE)
+  colnames(header) <- c("linetyp", "hour", "day", "month", "year")
 }
 
 
