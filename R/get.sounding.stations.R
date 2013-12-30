@@ -55,5 +55,8 @@ get.sounding.stations <- function(){
       df_soundings[,4] <- as.numeric(df_soundings[,4])
       df_soundings[,5] <- as.numeric(df_soundings[,5])
       df_soundings[,6] <- as.numeric(df_soundings[,6])
+      
+      # Remove objects from global environment
+      rm(i, init, wban, wmo, lat, lon, elev, station_name, prov_state, country, URI, pattern, lines )
   # Close function
 }
