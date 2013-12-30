@@ -35,5 +35,6 @@ get.sounding.stations <- function(){
     }
     init[i] <- str_match(string = lines[i], pattern = "^([0-9A-Z]*)")[1,2]
     wban[i] <- str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+([0-9]*)")[1,2]
+    wmo[i] <- str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+[0-9]* ([0-9]{5})")[1,2]
   # Close function
 }
