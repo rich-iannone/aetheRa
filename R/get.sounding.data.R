@@ -87,6 +87,8 @@ data_URI <- paste("http://www.esrl.noaa.gov/raobs/temp", str_match(string = noaa
 # Get the data as a large character object
 sounding_data <- getURL(data_URI)
 
+# Write the data to a file
+writeLines(sounding_data, con = "file:///Users/riannone/Dropbox/R Projects/test_FSL_sounding.txt", sep = "\n")
 }
 
 
