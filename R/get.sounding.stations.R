@@ -51,5 +51,9 @@ get.sounding.stations <- function(){
       # Create data frame with vector objects of equal length 
       df_soundings <- as.data.frame(cbind(init, wban, wmo, lat, lon, elev, station_name, prov_state, country), stringsAsFactors = FALSE)
       
+      # Change object class for lat, lon, and elev in 'df_soundings' data frame
+      df_soundings[,4] <- as.numeric(df_soundings[,4])
+      df_soundings[,5] <- as.numeric(df_soundings[,5])
+      df_soundings[,6] <- as.numeric(df_soundings[,6])
   # Close function
 }
