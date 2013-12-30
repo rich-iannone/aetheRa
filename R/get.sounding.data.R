@@ -51,6 +51,36 @@ station_list_id <- 1
 station_list <- "YLW+94151+71203+49.97+-119.38+00454+KELOWNA+APT+BC+CA"
 
 
+
+# Make request for data, store return message
+noaa_cgi_message <- getURL(paste(
+  "http://www.esrl.noaa.gov/raobs/intl/GetRaobs.cgi?",
+  "bdate=2013010100",
+  "&",
+  "edate=2013123123",
+  "&",
+  "access=All+Sites",
+  "&",
+  "view=NO",
+  "&",
+  "States=States",
+  "&",
+  "Countries=Countries",
+  "&",
+  "shour=All+Times",
+  "&",
+  "ltype=All+Levels",
+  "&",
+  "wunits=Tenths+of+Meters%2FSecond",
+  "&",
+  "stationlist=YES",
+  "&",
+  "station_list=YLW+94151+71203+49.97+-119.38+00454+KELOWNA+APT+BC+CA",
+  "&",
+  "osort=Station+Series+Sort",
+  "&",
+  "oformat=FSL+format+%28ASCII+text%29", sep = ''))
+
 }
 
 
