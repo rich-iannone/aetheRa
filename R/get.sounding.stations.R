@@ -58,5 +58,7 @@ get.sounding.stations <- function(){
       
       # Remove objects from global environment
       rm(i, init, wban, wmo, lat, lon, elev, station_name, prov_state, country, URI, pattern, lines )
+    }
+  }
   # Close function
 }
