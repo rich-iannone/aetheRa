@@ -15,5 +15,6 @@ get.sounding.stations <- function(){
   lines <- gsub(pattern = ".*MULTIPLE SIZE=\"10\">\n", replacement = "", x = lines)
   lines <- gsub(pattern = "\n\n</SELECT>.*", replacement = "", x = lines)
   lines <- gsub(pattern = "<OPTION> ", replacement = "", x = lines)
+  lines <- str_split(lines, "\n\n")
   # Close function
 }
