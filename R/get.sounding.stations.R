@@ -60,5 +60,9 @@ get.sounding.stations <- function(){
       rm(i, init, wban, wmo, lat, lon, elev, station_name, prov_state, country, URI, pattern, lines )
     }
   }
+  
+  # Return object
+  df_soundings
+  
   # Close function
 }
