@@ -99,6 +99,9 @@ is_1 <- str_detect(sounding_data_2[1], "^      1")
 is_2 <- str_detect(sounding_data_2[1], "^      2")
 is_3 <- str_detect(sounding_data_2[1], "^      3")
 is_4_9 <- str_detect(sounding_data_2[1], "^      [4-9]")
+
+header <- read.table(textConnection(sounding_data_2[1]),
+           stringsAsFactors = FALSE)
 }
 
 
