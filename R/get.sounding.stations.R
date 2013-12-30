@@ -42,5 +42,7 @@ get.sounding.stations <- function(){
     station_name[i] <- str_trim(str_match(string = lines[i],
                                           pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  (.+) [0-9A-Z]{2} [0-9A-Z]{2}$")[1,2],
                                 side = "both")
+    prov_state[i] <- str_match(string = lines[i],
+                               pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  .+ ([0-9A-Z]{2}) [0-9A-Z]{2}$")[1,2]
   # Close function
 }
