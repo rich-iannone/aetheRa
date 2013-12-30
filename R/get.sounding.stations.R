@@ -17,5 +17,21 @@ get.sounding.stations <- function(){
   lines <- gsub(pattern = "<OPTION> ", replacement = "", x = lines)
   lines <- str_split(lines, "\n\n")
   lines <- unlist(lines)
+  
+  # Initialize the data objects
+  # Loop through list of strings, extract and clean the substrings corresponding to data elements
+  # Create a data frame with vector lists and coerce some objects into numeric objects
+  for (i in 1:length(lines)){
+    if (i == 1) {
+      init <- mat.or.vec(nr = length(lines), nc = 1)
+      wban <- mat.or.vec(nr = length(lines), nc = 1)
+      wmo <- mat.or.vec(nr = length(lines), nc = 1)
+      lat <- mat.or.vec(nr = length(lines), nc = 1)
+      lon <- mat.or.vec(nr = length(lines), nc = 1)
+      elev <- mat.or.vec(nr = length(lines), nc = 1)
+      station_name <- mat.or.vec(nr = length(lines), nc = 1)
+      prov_state <- mat.or.vec(nr = length(lines), nc = 1)
+      country <- mat.or.vec(nr = length(lines), nc = 1)
+    }
   # Close function
 }
