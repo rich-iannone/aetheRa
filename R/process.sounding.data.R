@@ -14,6 +14,8 @@ process.sounding.stations <- function(sounding_data_vector){
                            soundings_1 == soundings_2 &
                            soundings_2 == soundings_3, TRUE, FALSE)
   
+  if (full_headers == TRUE) soundings <- soundings_254
+  
   # This function parses the 'sounding_data' object and compose a list of data frames
   
   
