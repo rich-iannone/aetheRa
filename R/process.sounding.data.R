@@ -10,6 +10,9 @@ process.sounding.stations <- function(sounding_data_vector){
   soundings_2 <- length(grep(pattern = "^      2", x = sounding_data))
   soundings_3 <- length(grep(pattern = "^      3", x = sounding_data))
   
+  full_headers <- ifelse(soundings_254 == soundings_1 &
+                           soundings_1 == soundings_2 &
+                           soundings_2 == soundings_3, TRUE, FALSE)
   
   # This function parses the 'sounding_data' object and compose a list of data frames
   
