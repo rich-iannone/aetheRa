@@ -9,5 +9,9 @@ get.sounding.data <- function(start_date,
                               output_file_name = "FSL-Sounding.txt",
                               details_in_file_name = TRUE
 ){
+  
+  # Include require statements
+  require(RCurl)
+  require(stringr)
+    
 }
-
