@@ -4,6 +4,9 @@ process.sounding.stations <- function(sounding_data_vector){
   require(RCurl)
   require(stringr)
   
+  # Determine number of soundings in file, necessary for initialization of list object
+  soundings_254 <- length(grep(pattern = "^    254", x = sounding_data))
+  
   # This function parses the 'sounding_data' object and compose a list of data frames
   
   
