@@ -14,4 +14,8 @@ get.sounding.data <- function(start_date,
   require(RCurl)
   require(stringr)
     
+  # Test parameter inputs
+  #
+  #
+  
 }
