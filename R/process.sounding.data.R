@@ -6,6 +6,10 @@ process.sounding.stations <- function(sounding_data_vector){
   
   # Determine number of soundings in file, necessary for initialization of list object
   soundings_254 <- length(grep(pattern = "^    254", x = sounding_data))
+  soundings_1 <- length(grep(pattern = "^      1", x = sounding_data))
+  soundings_2 <- length(grep(pattern = "^      2", x = sounding_data))
+  soundings_3 <- length(grep(pattern = "^      3", x = sounding_data))
+  
   
   # This function parses the 'sounding_data' object and compose a list of data frames
   
