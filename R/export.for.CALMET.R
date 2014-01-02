@@ -1,4 +1,9 @@
-export.for.CALMET <- function(sounding_list = sounding_list){
+export.for.CALMET <- function(sounding_list = sounding_list,
+                              export_all = FALSE,
+                              start_date,
+                              start_hour,
+                              end_date,
+                              end_hour){
   
   # Include require statements
   require(RCurl)
