@@ -42,6 +42,20 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   header_2 <- "1"
   header_3 <- "Produced using R"
   header_4 <- "NONE"
+  header_5 <- paste(year(as.POSIXct(start_date, origin = "1970-01-01", tz = "GMT")),
+                    "  ",
+                    yday(as.POSIXct(start_date, origin = "1970-01-01", tz = "GMT")),
+                    "    ",
+                    "1 ",
+                    year(as.POSIXct(end_date, origin = "1970-01-01", tz = "GMT")),
+                    "    ",
+                    yday(as.POSIXct(end_date, origin = "1970-01-01", tz = "GMT")),
+                    "    ",
+                    "1 ",
+                    "500.",
+                    "    2    2",
+                    sep = '')
+  header_6 <- "F    F    F    F"
   
   
   # Close the function
