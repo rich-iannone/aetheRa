@@ -138,5 +138,8 @@ process.sounding.stations <- function(sounding_data = sounding_data){
   # Return the 'sounding_list' object
   sounding_list
   
+  # Assign object to global environment
+  assign("sounding_list", sounding_list, envir = .GlobalEnv)
+  
 # Close the function
 }
