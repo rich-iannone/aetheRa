@@ -11,6 +11,20 @@ export.for.CALMET <- function(sounding_list = sounding_list){
     stop("Processed sounding data is not available. Use the 'process.sounding.data' function")
   }
   
+  # Generate header for UP.DAT file
+  
+#   UP.DAT          2.0             Header structure with coordinate parameters                     
+#   1
+#   Produced by READ62 Version: 5.54  Level: 070627                                 
+#   NONE    
+#   2004  336    1 2006   10    1 500.    2    2
+#   T    F    F    F
+#   6201     94240   200412 112     67                               39
+  
+  header_1 <- "UP.DAT          2.0             Header structure with coordinate parameters"
+  header_2 <- "1"
+  header_3 <- "Produced using R"
+  header_4 <- "NONE"
   
   
   # Close the function
