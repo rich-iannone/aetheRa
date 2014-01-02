@@ -55,7 +55,8 @@ process.sounding.stations <- function(sounding_data_vector){
     
     header_2 <- read.table(textConnection(sounding_data[i + 2]),
                            stringsAsFactors = FALSE)
-    colnames(header_2) <- c("lintyp_2", "hydro", "mxwd", "tropl", "lines", "tindex", "source")
+    colnames(header_2) <- c("lintyp_2", "hydro", "mxwd", "tropl",
+                            "lines", "tindex", "source")
     
     header_3 <- read.table(textConnection(sounding_data[i + 3]),
                            stringsAsFactors = FALSE)
