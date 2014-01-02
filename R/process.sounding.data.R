@@ -97,6 +97,8 @@ process.sounding.stations <- function(sounding_data_vector){
     # second slot of the list item
     sounding_list[[list_item]][[2]] <- data
     
+    # increment the index of i to the first header line of the next sounding
+    i <- i + header$lines
   }
   
 }
