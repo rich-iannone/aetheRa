@@ -111,9 +111,9 @@ process.sounding.stations <- function(sounding_data_vector){
     
     # Create a progress bar
     pb <- txtProgressBar(min = 1, max = length(sounding_data), style = 3)
-    for(i in c(1, i, length(sounding_data)) {
-      Sys.sleep(0.5)
-      setTxtProgressBar(pb, i)
+    for(i in c(1, i, length(sounding_data)) {Sys.sleep(0.5); setTxtProgressBar(pb, i)}
+      Sys.sleep(1)
+      close(pb)
     }
     
     # Close while loop
