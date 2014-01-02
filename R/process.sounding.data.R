@@ -119,4 +119,5 @@ process.sounding.stations <- function(sounding_data_vector){
     # Close while loop
   }
   
+# Close the function
 }
