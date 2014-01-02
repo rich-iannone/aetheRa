@@ -17,7 +17,6 @@ get.sounding.data <- function(start_date,
   # Test parameter inputs
   #
   #
-  
 #   start_date <- "2013-01-01"
 #   end_date <- "2013-12-31"
 #   hour_type <- "all"
@@ -40,7 +39,6 @@ get.sounding.data <- function(start_date,
 #   
 #   # Append details to file name
 #   details_in_file_name <- TRUE
-  
   #
   #
   ####
