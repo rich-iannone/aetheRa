@@ -119,5 +119,8 @@ process.sounding.stations <- function(sounding_data_vector){
     # Close while loop
   }
   
+  # Return the 'sounding_list' object
+  sounding_list
+  
 # Close the function
 }
