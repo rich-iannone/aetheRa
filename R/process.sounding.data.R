@@ -81,9 +81,6 @@ process.sounding.stations <- function(sounding_data_vector){
         nr = header$lines - 4, nc = 7))
       }
       
-    
-          
-          
     }
     
     
