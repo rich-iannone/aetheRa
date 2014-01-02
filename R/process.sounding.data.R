@@ -102,6 +102,9 @@ process.sounding.stations <- function(sounding_data_vector){
     
     # Remove the 'header' and 'header_*' items
     rm(header, header_254, header_1, header_2, header_3)
+    
+    # Remove the j index object
+    rm(j)
   }
   
 }
