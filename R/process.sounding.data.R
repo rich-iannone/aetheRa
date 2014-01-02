@@ -60,7 +60,21 @@ process.sounding.stations <- function(sounding_data = sounding_data){
                              stringsAsFactors = FALSE)
     colnames(header_254) <- c("lintyp_254", "hour", "day",
                               "month", "year")
-    
+    # Recode month from 3-letter char object to a month number
+    header_254$month <- switch(header_254$month,
+                               "JAN" = 1,
+                               "FEB" = 2,
+                               "MAR" = 3,
+                               "APR" = 4,
+                               "MAY" = 5,
+                               "JUN" = 6,
+                               "JUL" = 7,
+                               "AUG" = 8,
+                               "SEP" = 9,
+                               "OCT" = 10,
+                               "NOV" = 11,
+                               "DEC" = 12)
+      
     header_1 <- read.table(textConnection(sounding_data[i + 1]),
                            stringsAsFactors = FALSE)
     colnames(header_1) <- c("lintyp_1", "wban", "wmo", "lat",
