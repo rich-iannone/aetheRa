@@ -81,6 +81,9 @@ process.sounding.stations <- function(sounding_data_vector){
         nr = header$lines - 4, nc = 7))
       }
       
+      data[(j - 3 - i),] <- read.table(textConnection(sounding_data[j]),
+                                   stringsAsFactors = FALSE)
+      
     }
     
     
