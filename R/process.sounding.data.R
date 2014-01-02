@@ -28,6 +28,9 @@ process.sounding.stations <- function(sounding_data_vector){
   # Remove 'soundings_*' objects
   rm(soundings_254, soundings_1, soundings_2, soundings_3)
   
+  # Remove other objects from global workspace
+  rm(full_headers, correct_first_line)
+  
   # Create list of soundings
   sounding_list <- vector("list", soundings)
   
