@@ -116,6 +116,7 @@ process.sounding.stations <- function(sounding_data_vector){
       setTxtProgressBar(pb, i)
     }
     
+    # Close while loop
   }
   
 }
