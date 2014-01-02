@@ -84,6 +84,13 @@ process.sounding.stations <- function(sounding_data_vector){
       data[(j - 3 - i),] <- read.table(textConnection(sounding_data[j]),
                                    stringsAsFactors = FALSE)
       
+      if (j == (i + header$lines - 1)) {
+        colnames(data) <- c("lintyp", "pressure", "height", "temp",
+                            "dewpt", "wind_dir", "wind_speed")
+        data$temp <- data$temp / 10
+        data$dewpt <- data$dewpt / 10
+        data$wind_speed <- data$wind_speed / 10
+      }
     }
     
     
