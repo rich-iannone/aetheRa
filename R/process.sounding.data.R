@@ -105,6 +105,9 @@ process.sounding.stations <- function(sounding_data_vector){
     
     # Remove the j index object
     rm(j)
+    
+    # Remove the 'data' object
+    rm(data)
   }
   
 }
