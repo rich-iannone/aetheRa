@@ -93,6 +93,9 @@ process.sounding.stations <- function(sounding_data_vector){
       }
     }
     
+    # Store the sounding data information as a data frame in the
+    # second slot of the list item
+    sounding_list[[list_item]][[2]] <- data
     
   }
   
