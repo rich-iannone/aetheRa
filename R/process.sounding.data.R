@@ -49,8 +49,9 @@ process.sounding.stations <- function(sounding_data_vector){
                               "month", "year")
     
     header_1 <- read.table(textConnection(sounding_data[i + 1]),
-               stringsAsFactors = FALSE)
-    colnames(header_1) <- c("lintyp_1", "wban", "wmo", "lat", "lon", "elev", "rtime")
+                           stringsAsFactors = FALSE)
+    colnames(header_1) <- c("lintyp_1", "wban", "wmo", "lat",
+                            "lon", "elev", "rtime")
     
     header_2 <- read.table(textConnection(sounding_data[i + 2]),
                            stringsAsFactors = FALSE)
