@@ -99,6 +99,9 @@ process.sounding.stations <- function(sounding_data_vector){
     
     # increment the index of i to the first header line of the next sounding
     i <- i + header$lines
+    
+    # Remove the 'header' and 'header_*' items
+    rm(header, header_254, header_1, header_2, header_3)
   }
   
 }
