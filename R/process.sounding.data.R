@@ -39,7 +39,7 @@ process.sounding.stations <- function(sounding_data_vector){
   
   # Set iterator index (list) to 1; this corresponds to the sounding number (and the
   # list number)
-  list <- 1
+  list_item <- 0
   
   # Use a while loop to cycle through the 'sounding_data' object and extract element
   while ( i < length(sounding_data)) {
