@@ -125,6 +125,9 @@ process.sounding.stations <- function(sounding_data_vector){
     # Close while loop
   }
   
+  # Remove items from workspace
+  rm(i, soundings, list_item, pb)
+  
   # Return the 'sounding_list' object
   sounding_list
   
