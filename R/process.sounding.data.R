@@ -77,9 +77,9 @@ process.sounding.stations <- function(sounding_data_vector){
     for (j in (i + 4):(i + header$lines - 1)) {
       
       # Initialize the data frame for the sounding data
-      if (j == (i + 4) mat <- as.data.frame(mat.or.vec(nr = header$lines - 4, nc = 7))
-      mat[1,] <- read.table(textConnection(sounding_data[j]),
-                             stringsAsFactors = FALSE)
+      if (j == (i + 4)) {data <- as.data.frame(mat.or.vec(
+        nr = header$lines - 4, nc = 7))
+      }
       
     
           
