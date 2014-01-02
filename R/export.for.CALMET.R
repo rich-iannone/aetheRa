@@ -16,6 +16,19 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     stop("Processed sounding data is not available. Use the 'process.sounding.data' function")
   }
   
+  # Test parameter inputs
+  #
+  #
+  export_all_times <- FALSE
+  start_date <- "2013-01-01"
+  start_hour <- 1
+  end_date <- "2013-12-31"
+  end_hour <- 1
+  #
+  #
+  ####
+  
+  
   # Generate header for UP.DAT file
   
 #   UP.DAT          2.0             Header structure with coordinate parameters                     
