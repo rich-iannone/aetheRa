@@ -25,6 +25,9 @@ process.sounding.stations <- function(sounding_data_vector){
   # the number of soundings is passed to the 'soundings' object
   if (full_headers == TRUE & correct_first_line == TRUE) soundings <- soundings_254
   
+  # Remove 'soundings_*' objects
+  rm(soundings_254, soundings_1, soundings_2, soundings_3)
+  
   # Create list of soundings
   sounding_list <- vector("list", soundings)
   
