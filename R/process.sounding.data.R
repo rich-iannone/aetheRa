@@ -44,8 +44,9 @@ process.sounding.stations <- function(sounding_data_vector){
   # Use a while loop to cycle through the 'sounding_data' object and extract element
   while ( i < length(sounding_data)) {
     header_254 <- read.table(textConnection(sounding_data[i]),
-                         stringsAsFactors = FALSE)
-    colnames(header_254) <- c("lintyp_254", "hour", "day", "month", "year")
+                             stringsAsFactors = FALSE)
+    colnames(header_254) <- c("lintyp_254", "hour", "day",
+                              "month", "year")
     
     header_1 <- read.table(textConnection(sounding_data[i + 1]),
                stringsAsFactors = FALSE)
