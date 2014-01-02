@@ -109,7 +109,7 @@ process.sounding.stations <- function(sounding_data_vector){
     # Remove the 'data' object
     rm(data)
     
-    # Create progress bar
+    # Create a progress bar
     pb <- txtProgressBar(min = 1, max = length(sounding_data), style = 3)
     foreach(i in 1:length(sounding_data)) %dopar% {
       Sys.sleep(1)
