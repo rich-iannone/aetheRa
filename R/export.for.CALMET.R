@@ -13,7 +13,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   # Check for existance of 'sounding_list' object, created by the
   # 'process.sounding.data' function; if the object doesn't exist, stop the function
   # with a message
-  if (!exists("sounding_data")) {
+  if (!exists("sounding_list")) {
     stop("Processed sounding data is not available. Use the 'process.sounding.data' function")
   }
   
