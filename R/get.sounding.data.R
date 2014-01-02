@@ -162,5 +162,8 @@ get.sounding.data <- function(start_date,
   # Return the 'sounding_data' object
   sounding_data
   
+  # Assign object to global environment
+  assign("sounding_data", sounding_data, envir = .GlobalEnv)
+  
   # Close the function
 }
