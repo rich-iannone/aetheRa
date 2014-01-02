@@ -1,5 +1,5 @@
 export.for.CALMET <- function(sounding_list = sounding_list,
-                              export_all = FALSE,
+                              export_all_times = FALSE,
                               start_date,
                               start_hour,
                               end_date,
