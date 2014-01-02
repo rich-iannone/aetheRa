@@ -29,7 +29,6 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   #
   ####
   
-  
   # Generate header for UP.DAT file
   
 #   UP.DAT          2.0             Header structure with coordinate parameters                     
