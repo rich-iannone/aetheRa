@@ -21,10 +21,10 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   #
   #
   export_all_times <- FALSE
-  start_date <- "2012-01-01"
+  start_date <- "2013-01-01"
   start_hour <- 0
-  end_date <- "2012-12-31"
-  end_hour <- 12
+  end_date <- "2013-12-31"
+  end_hour <- 0
   #
   #
   ####
