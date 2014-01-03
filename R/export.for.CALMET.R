@@ -57,6 +57,22 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                     sep = '')
   header_6 <- "F    F    F    F"
   
+  # Determine whether the selected time interval is available in the
+  # 'sounding_list' list of data frames
+  sounding_list_start_time <- 
+    ISOdatetime(year = sounding_list[[1]][[1]][[4]],
+                month = sounding_list[[1]][[1]][[3]],
+                day = sounding_list[[1]][[1]][[2]],
+                hour = sounding_list[[1]][[1]][[1]],
+                min = 0, sec = 0, tz = "GMT")
+  
+  sounding_list_end_time <-
+    ISOdatetime(year = sounding_list[[length(sounding_list)]][[1]][[4]],
+                month = sounding_list[[length(sounding_list)]][[1]][[3]],
+                day = sounding_list[[length(sounding_list)]][[1]][[2]],
+                hour = sounding_list[[length(sounding_list)]][[1]][[1]],
+                min = 0, sec = 0, tz = "GMT")
+  
   
   # Close the function
 }
