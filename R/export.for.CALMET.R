@@ -80,6 +80,10 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                 hour = sounding_list[[length(sounding_list)]][[1]][[1]],
                 min = 0, sec = 0, tz = "GMT")
   
+  if (req_start_date_time < sounding_list_start_date_time |
+        req_end_date_time > sounding_list_end_date_time  ) {
+    stop("Requested time frame for data is not entirely available in processed dataset.")
+  }
   
   # Close the function
 }
