@@ -29,6 +29,13 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   #
   ####
   
+  # Generate requested start and end POSIXct time objects
+  req_start_date_time <- as.POSIXct(start_date, origin = "1970-01-01", tz = "GMT") +
+    (start_hour * 3600)
+  
+  req_end_date_time <- as.POSIXct(end_date, origin = "1970-01-01", tz = "GMT") +
+    (end_hour * 3600)
+  
   # Generate header for UP.DAT file
   
 #   UP.DAT          2.0             Header structure with coordinate parameters                     
