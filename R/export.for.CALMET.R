@@ -101,6 +101,28 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                          day = sounding_list[[length(sounding_list)]][[1]][[2]],
                          hour = sounding_list[[length(sounding_list)]][[1]][[1]],
                          min = 0, sec = 0, tz = "GMT") <= req_end_date_time)
+  # Find how many values of the list need to be trimmed from the beginning   
+  for (i in 1:length(sounding_list)) {
+    if (i == 1) above_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
+    above_req_date_time[i] <- 
+      ISOdatetime(year = sounding_list[[i]][[1]][[4]],
+                  month = sounding_list[[i]][[1]][[3]],
+                  day = sounding_list[[i]][[1]][[2]],
+                  hour = sounding_list[[i]][[1]][[1]],
+                  min = 0, sec = 0, tz = "GMT") >= req_start_date_time
+  }
+
+  # Find how many values of the list need to be trimmed from the beginning   
+  for (i in 1:length(sounding_list)) {
+    if (i == 1) below_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
+    below_req_date_time[i] <- 
+      ISOdatetime(year = sounding_list[[i]][[1]][[4]],
+                  month = sounding_list[[i]][[1]][[3]],
+                  day = sounding_list[[i]][[1]][[2]],
+                  hour = sounding_list[[i]][[1]][[1]],
+                  min = 0, sec = 0, tz = "GMT") <= req_end_date_time
+  }
+  
   
   
   
