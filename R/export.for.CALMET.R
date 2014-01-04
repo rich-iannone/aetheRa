@@ -86,7 +86,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   }
   
   # Subset the list object
-  # Find how many values of the list need to be trimmed from the beginning   
+  # Find how many values of the list need to be trimmed from the beginning then
+  # trim those list items and save as a new list object
   for (i in 1:length(sounding_list)) {
     if (i == 1) above_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
     above_req_date_time[i] <- 
