@@ -98,7 +98,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                   min = 0, sec = 0, tz = "GMT") >= req_start_date_time
   }
 
-  # Find how many values of the list need to be trimmed from the beginning   
+  # Find how many values of the list need to be trimmed from the end   
   for (i in 1:length(sounding_list)) {
     if (i == 1) below_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
     below_req_date_time[i] <- 
