@@ -109,6 +109,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                   day = sounding_list[[i]][[1]][[2]],
                   hour = sounding_list[[i]][[1]][[1]],
                   min = 0, sec = 0, tz = "GMT") <= req_end_date_time
+    trim_number_from_right <- length(below_req_date_time) -
+      sum(below_req_date_time, na.rm = TRUE)
   }
   
   # Make copy of sounding_list before trimming it
