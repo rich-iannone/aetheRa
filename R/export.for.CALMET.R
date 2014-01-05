@@ -116,6 +116,12 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   # Make copy of sounding_list before trimming it
   trimmed_sounding_list <- sounding_list
   
+  # Trim the 'trimmed_sounding_list' object at the beginning
+  if (trim_number_from_left > 0) {
+    for (i in 1:trim_number_from_left) {
+      trimmed_sounding_list[1] <- NULL
+    }
+  }
   
   
   
