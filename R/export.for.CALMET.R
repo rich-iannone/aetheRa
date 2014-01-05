@@ -96,6 +96,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                   day = sounding_list[[i]][[1]][[2]],
                   hour = sounding_list[[i]][[1]][[1]],
                   min = 0, sec = 0, tz = "GMT") >= req_start_date_time
+    trim_number_from_left <- length(above_req_date_time) -
+      sum(above_req_date_time, na.rm = TRUE)   
   }
 
   # Find how many values of the list need to be trimmed from the end   
