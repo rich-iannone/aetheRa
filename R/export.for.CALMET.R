@@ -128,7 +128,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   
   # Trim the 'trimmed_sounding_list' object at the end
   if (trim_number_from_right > 0) {
-    for (i in 1:10) {
+    for (i in 1:trim_number_from_right) {
       trimmed_sounding_list[length(trimmed_sounding_list)] <- NULL
     }
   }
