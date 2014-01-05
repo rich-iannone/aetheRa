@@ -109,8 +109,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                   min = 0, sec = 0, tz = "GMT") <= req_end_date_time
   }
   
-  # Generate the new list called 'new_sounding_list' based on the requested
-  # temporal parameters
+  # Make copy of sounding_list before trimming it
+  trimmed_sounding_list <- sounding_list
   
   
   
