@@ -134,7 +134,6 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   }
   
   
-  temp_line <- paste("   6201     94240   ",
   
   # Close the function
 }
