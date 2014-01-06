@@ -134,6 +134,28 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   }
   
   
+  header_line_constant <- paste("   6201     94240   ")
+  
+  # Loop through the list, outputting lines at 0z and at 12z
+  # Check that the next item in the list is within 10-14 h of the previous
+  # If there is no list item available, then get the sounding data from the
+  # previous period ~24 h earlier
+  
+  header_item <- 
+    paste(header_line_constant,
+          trimmed_sounding_list[[1]][[1]][[4]],
+          formatC(trimmed_sounding_list[[1]][[1]][[3]], # month
+                  width = 2, flag = " "),
+          formatC(trimmed_sounding_list[[1]][[1]][[3]], # day
+                  width = 2, flag = " "),
+          formatC(trimmed_sounding_list[[1]][[1]][[2]], # hour
+                  width = 2, flag = " "),
+          formatC(trimmed_sounding_list[[1]][[1]][[14]] - 3, # lines
+                  width = 7, flag = " "),
+          formatC(trimmed_sounding_list[[1]][[1]][[14]] - 3, # lines
+                  width = 33, flag = " "),
+          sep = '')
+
   
   # Close the function
 }
