@@ -43,6 +43,15 @@ export.for.CALMET <- function(sounding_list = sounding_list,
 #   Produced by READ62 Version: 5.54  Level: 070627                                 
 #   NONE    
 #   2004  336    1 2006   10    1 500.    2    2
+#     (1) start year
+#     (2) starting julian day
+#     (3) starting hour
+#     (4) ending year
+#     (5) ending julian day
+#     (6) ending hour
+#     (7) top pressure level (850 mb, 700 mb, or 500 mb)
+#     (8) input file format: 1 is TD-6201 format, 2 is NCDC CD-ROM format
+#     (9) delimiter used in UP.DAT file
 #   T    F    F    F
   
   header_1 <- "UP.DAT          2.0             Header structure with coordinate parameters"
