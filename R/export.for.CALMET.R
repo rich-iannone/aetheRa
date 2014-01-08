@@ -151,6 +151,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   # previous period ~24 h earlier
   
   header_item <- 
+  # Start loop for header line
     paste(header_line_constant,
           trimmed_sounding_list[[1]][[1]][[4]],
           formatC(trimmed_sounding_list[[1]][[1]][[3]], # month
