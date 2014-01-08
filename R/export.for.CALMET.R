@@ -151,17 +151,18 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   # Construct the first portion of header line, which is constant throughout
   header_line_constant <- paste("   6201     94240   ")
   
+  #
   # Loop through the list, outputting lines at 0z and at 12z
   # Check that the next item in the list is within 10-14 h of the previous
   # If there is no list item available, then get the sounding data from the
   # previous period ~24 h earlier
+  #
   
   # Generate a file for writing
-  
   cat(file = "test_output.txt")
   
-  # Start loop for header line
   
+  # Start loop for header line
   for (i in 1:length(trimmed_sounding_list)) {
     header_line <- 
       paste(header_line_constant,
