@@ -204,10 +204,9 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                      formatC(trimmed_sounding_list[[i]][[2]][[j, 7]], # WS
                              width = 5, format = "f", 
                              digits = 1, flag = " ")),
+              ifelse(j == nrow(trimmed_sounding_list[[i]][[2]]), "", ","),
               sep = '')
-      
-      
-      
+           
       # Close loop for data lines
     }
     
