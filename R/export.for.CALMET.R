@@ -170,7 +170,22 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     
     # Start loop for data lines
     for (j in 1:nrow(trimmed_sounding_list[[i]][[2]])) {
-      
+      if (i == 1) data_line <- mat.or.vec(nr = nrow(trimmed_sounding_list[[i]][[2]]),
+                                          nc = 1) 
+      data_line[j] <- paste(formatC(trimmed_sounding_list[[i]][[2]][[j, 2]], # pressure
+                                    width = 9, format = "f", digits = 1, flag = " "),
+                            formatC(trimmed_sounding_list[[i]][[2]][[j, 3]], # height
+                                    width = 4, format = "f", decimal.mark = ".", 
+                                    digits = 0, drop0trailing = TRUE, flag = " "),
+                            formatC(trimmed_sounding_list[[i]][[2]][[j, 4]] + 273, # temp
+                                    width = 3, format = "f", decimal.mark = ".", 
+                                    digits = 1, drop0trailing = TRUE, flag = " "),
+                            formatC(trimmed_sounding_list[[i]][[2]][[j, 6]], # WD
+                                    width = 3, format = "d", flag = " "),
+                            formatC(trimmed_sounding_list[[i]][[2]][[j, 7]], # WS
+                                    width = 5, format = "f", decimal.mark = ".", 
+                                    digits = 1, flag = " "),
+                            sep = ',')
       
       
       
