@@ -26,6 +26,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   start_hour <- 0
   end_date <- "2013-12-31"
   end_hour <- 0
+  top_pressure_level <- 500
   #
   #
   ####
