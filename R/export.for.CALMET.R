@@ -3,7 +3,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                               start_date,
                               start_hour,
                               end_date,
-                              end_hour){
+                              end_hour,
+                              top_pressure_level){
   
   # Include require statements
   require(RCurl)
