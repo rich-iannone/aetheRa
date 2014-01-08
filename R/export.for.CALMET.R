@@ -150,6 +150,10 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   # If there is no list item available, then get the sounding data from the
   # previous period ~24 h earlier
   
+  # Generate a file for writing
+  
+  cat(file = "test_output.txt")
+  
   # Start loop for header line
   
   for (i in 1:length(trimmed_sounding_list)) {
