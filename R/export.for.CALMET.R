@@ -142,7 +142,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     }
   }
   
-  
+  # Construct the first portion of header line, which is constant throughout
   header_line_constant <- paste("   6201     94240   ")
   
   # Loop through the list, outputting lines at 0z and at 12z
