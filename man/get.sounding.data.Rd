@@ -29,10 +29,10 @@ the starting date of the sounding data request in the format "YYYY-MM-DD". The e
 the end date of the sounding data request in the format "YYYY-MM-DD". The last sounding for the specified date will be included in the request.
 }
   \item{hour_type}{
-the types of hours to be supplied in the returned dataset. The default is "all", which includes sounding data from launches near 12:00 UTC and those near 24:00 UTC.
+the types of hours to be supplied in the returned dataset. The default is "0z,12z", which includes sounding data from launches near 12:00 UTC and those near 24:00 UTC. The option "all" provides all of the soundings available from the dataset, and the options "12z" and "0z" provide data from those soundings launched near 12:00 UTC or 24:00 UTC, respectively.
 }
   \item{level_type}{
-the types of levels to be supplied in the returned dataset. The default is "all", which includes all sounding types (mandatory and significant types). Other options are "mandatory" (includes only the mandatory-type levels) and "significant" (includes only the significant-type levels).
+the types of levels to be supplied in the returned dataset. The default is "all", which includes all sounding types. Other options are "mandatory" (includes only the mandatory-type levels) and "mandatory_and_significant" (includes only the mandatory- and significant-type levels).
 }
   \item{wind_units}{
 the desired wind units for the sounding data request. Options are tenths of meters per second ("tenths_ms", the default) and "knots".
