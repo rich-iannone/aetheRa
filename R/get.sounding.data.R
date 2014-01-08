@@ -54,6 +54,9 @@ get.sounding.data <- function(start_date,
   
   # Get formatted 'shour' string
   if (hour_type == "all") shour <- "All+Times"
+  if (hour_type == "0z") shour <- "0z+ONLY"
+  if (hour_type == "12z") shour <- "12z+ONLY"
+  if (hour_type == "0z,12z") shour <- "0z%2C+12z+ONLY"
   
   # Get formatted 'ltype' string
   if (level_type == "all") ltype <- "All+Levels"
