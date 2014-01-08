@@ -172,6 +172,9 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                     width = 33, flag = " "),
             sep = '')
     
+    # Write header_line to file
+    cat(header_line, sep = "\n", file = "test_output.txt", append = TRUE)
+    
     # Start loop for data lines
     for (j in 1:nrow(trimmed_sounding_list[[i]][[2]])) {
       if (j == 1) data_line <- mat.or.vec(nr = nrow(trimmed_sounding_list[[i]][[2]]),
