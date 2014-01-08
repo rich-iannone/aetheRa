@@ -19,11 +19,16 @@ get.sounding.data <- function(start_date,
   #
 #   start_date <- "2013-01-01"
 #   end_date <- "2013-12-31"
+#
 #   #hour_type <- "all"
 #   # hour_type <- "0z"
 #   # hour_type <- "12z"
 #   hour_type <- "0z,12z"
+#   
 #   level_type <- "all"
+#   # level_type <- "mandatory"
+#   # level_type <- "mandatory_and_significant"
+#
 #   wind_units <- "tenths_ms"
 #   
 #   # Request station by line number in station list
