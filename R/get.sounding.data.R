@@ -65,6 +65,8 @@ get.sounding.data <- function(start_date,
   
   # Get formatted 'ltype' string
   if (level_type == "all") ltype <- "All+Levels"
+  if (level_type == "mandatory") ltype <- "Mandatory"
+  if (level_type == "mandatory_and_significant") ltype <- "Mand+%26+Sigs"
   
   # Get formatted 'wunits' string
   if (wind_units == "tenths_ms") wunits <- "Tenths+of+Meter%2FSecond" 
