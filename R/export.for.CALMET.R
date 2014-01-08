@@ -201,9 +201,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
       
       
       
-    # Close loop for data lines
+      # Close loop for data lines
     }
-    
     
     # Close loop for header line
   }
