@@ -1,5 +1,6 @@
 get.sounding.stations <- function(){
   
+  # Include require statements
   require(RCurl)
   require(stringr)
   
