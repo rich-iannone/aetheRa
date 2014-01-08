@@ -162,9 +162,9 @@ export.for.CALMET <- function(sounding_list = sounding_list,
             trimmed_sounding_list[[i]][[1]][[4]],
             formatC(trimmed_sounding_list[[i]][[1]][[3]], # month
                     width = 2, flag = " "),
-            formatC(trimmed_sounding_list[[i]][[1]][[3]], # day
+            formatC(trimmed_sounding_list[[i]][[1]][[2]], # day
                     width = 2, flag = " "),
-            formatC(trimmed_sounding_list[[i]][[1]][[2]], # hour
+            formatC(trimmed_sounding_list[[i]][[1]][[1]], # hour
                     width = 2, flag = " "),
             formatC(trimmed_sounding_list[[i]][[1]][[14]] - 3, # lines
                     width = 7, flag = " "),
