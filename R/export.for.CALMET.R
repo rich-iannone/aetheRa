@@ -161,6 +161,9 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   # Generate a file for writing
   cat(file = "test_output.txt")
   
+  # Add header to top of output file
+  cat(header_1, header_2, header_3, header_4, header_5, header_6,
+      sep = "\n", file = "test_output.txt", append = TRUE)
   
   # Start loop for header line
   for (i in 1:length(trimmed_sounding_list)) {
