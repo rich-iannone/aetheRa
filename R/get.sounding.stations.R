@@ -39,19 +39,34 @@ get.sounding.stations <- function(){
       prov_state <- mat.or.vec(nr = length(lines), nc = 1)
       country <- mat.or.vec(nr = length(lines), nc = 1)
     }
-    init[i] <- str_match(string = lines[i], pattern = "^([0-9A-Z]*)")[1,2]
-    wban[i] <- str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+([0-9]*)")[1,2]
-    wmo[i] <- str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+[0-9]* ([0-9]{5})")[1,2]
-    lat[i] <- as.numeric(str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} ([0-9/.-]*)")[1,2])
-    lon[i] <- as.numeric(str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* ([0-9/.-]*)")[1,2])
-    elev[i] <- as.numeric(str_match(string = lines[i], pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* ([0-9-]{5,6})")[1,2])
-    station_name[i] <- str_trim(str_match(string = lines[i],
-                                          pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  (.+) [0-9A-Z]{2} [0-9A-Z]{2}$")[1,2],
-                                side = "both")
-    prov_state[i] <- str_match(string = lines[i],
-                               pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  .+ ([0-9A-Z]{2}) [0-9A-Z]{2}$")[1,2]
-    country[i] <- str_match(string = lines[i],
-                            pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  .+ [0-9A-Z]{2} ([0-9A-Z]{2})$")[1,2]
+    init[i] <- 
+      str_match(string = lines[i],
+                pattern = "^([0-9A-Z]*)")[1,2]
+    wban[i] <- 
+      str_match(string = lines[i],
+                pattern = "^[0-9A-Z]+[ ]+([0-9]*)")[1,2]
+    wmo[i] <- 
+      str_match(string = lines[i],
+                pattern = "^[0-9A-Z]+[ ]+[0-9]* ([0-9]{5})")[1,2]
+    lat[i] <- 
+      as.numeric(str_match(string = lines[i],
+                           pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} ([0-9/.-]*)")[1,2])
+    lon[i] <- 
+      as.numeric(str_match(string = lines[i],
+                           pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* ([0-9/.-]*)")[1,2])
+    elev[i] <- 
+      as.numeric(str_match(string = lines[i],
+                           pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* ([0-9-]{5,6})")[1,2])
+    station_name[i] <- 
+      str_trim(str_match(string = lines[i],
+                         pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  (.+) [0-9A-Z]{2} [0-9A-Z]{2}$")[1,2],
+               side = "both")
+    prov_state[i] <- 
+      str_match(string = lines[i],
+                pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  .+ ([0-9A-Z]{2}) [0-9A-Z]{2}$")[1,2]
+    country[i] <- 
+      str_match(string = lines[i],
+                pattern = "^[0-9A-Z]+[ ]+[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  .+ [0-9A-Z]{2} ([0-9A-Z]{2})$")[1,2]
     
     if (i == length(lines)) {
       # Create data frame with vector objects of equal length 
