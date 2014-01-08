@@ -19,7 +19,10 @@ get.sounding.data <- function(start_date,
   #
 #   start_date <- "2013-01-01"
 #   end_date <- "2013-12-31"
-#   hour_type <- "all"
+#   #hour_type <- "all"
+#   # hour_type <- "0z"
+#   # hour_type <- "12z"
+#   hour_type <- "0z,12z"
 #   level_type <- "all"
 #   wind_units <- "tenths_ms"
 #   
