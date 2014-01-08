@@ -1,6 +1,6 @@
 get.sounding.data <- function(start_date,
                               end_date,
-                              hour_type = "all",
+                              hour_type = "0z,12z",
                               level_type = "all",
                               wind_units = "tenths_ms",
                               station_number = NULL,
