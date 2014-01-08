@@ -10,9 +10,11 @@ get.sounding.stations <- function(){
                       "osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29",
                       sep = ''))
   
-  # Create a 'pattern' string object containing the regex pattern for extracting sounding data strings
-  # from the URI
-  pattern <- "<OPTION> [0-9A-Z]*[ ]*[0-9]* [0-9]{5} [0-9/.-]* [0-9/.-]* [0-9-]{5,6}  [.]*  [0-9A-Z]{2} [0-9A-Z]{2}"
+  # Create a 'pattern' string object containing the regex pattern for extracting
+  # sounding data strings from the URI
+  pattern <- paste("<OPTION> [0-9A-Z]*[ ]*[0-9]* [0-9]{5} [0-9/.-]*",
+                   "[0-9/.-]* [0-9-]{5,6}  [.]*  [0-9A-Z]{2} [0-9A-Z]{2}",
+                   sep = '')
   
   # Generate vector list of strings from URI page source
   lines <- gsub(pattern = pattern, replacement = "\\1", x = URI)
