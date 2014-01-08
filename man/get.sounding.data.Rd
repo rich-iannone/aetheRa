@@ -52,6 +52,7 @@ the desired filename for the retrieved sounding data, including an extension suc
   \item{details_in_file_name}{
 incorporates details about the sounding data into the filename. Set to "TRUE" by default to provide self-describing filenames and reducing the risk of overwriting files. Setting to "FALSE" strictly uses the filename specified in the 'output_file_name' argument.
 }
+}
 
 \details{
 
