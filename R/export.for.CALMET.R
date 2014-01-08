@@ -168,6 +168,14 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                     width = 33, flag = " "),
             sep = '')
     
+    # Start loop for data lines
+    for (j in 1:nrow(trimmed_sounding_list[[i]][[2]])) {
+      
+      
+      
+      
+    # Close loop for data lines
+    }
     
     
     # Close loop for header line
