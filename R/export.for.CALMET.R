@@ -214,6 +214,10 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     for (k in 1:length(data_line)) {
       if (trimmed_sounding_list[[i]][[2]][[k, 3]] < 0) data_line <- data_line[-k]
     }
+    
+    # Write data lines to file
+    cat(data_line, sep = "\n", file = "test_output.txt", append = TRUE)
+
     # Close loop for header line
   }
   
