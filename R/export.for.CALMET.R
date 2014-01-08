@@ -172,19 +172,32 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     for (j in 1:nrow(trimmed_sounding_list[[i]][[2]])) {
       if (j == 1) data_line <- mat.or.vec(nr = nrow(trimmed_sounding_list[[i]][[2]]),
                                           nc = 1) 
-      data_line[j] <- paste(formatC(trimmed_sounding_list[[i]][[2]][[j, 2]], # pressure
-                                    width = 9, format = "f", digits = 1, flag = " "),
-                            formatC(sprintf(trimmed_sounding_list[[i]][[2]][[j, 3]], # height
-                                    fmt='%#.0g'), width = 5),
-                            formatC(trimmed_sounding_list[[i]][[2]][[j, 4]] + 273, # temp
-                                    width = 3, format = "f", decimal.mark = ".", 
-                                    digits = 1, drop0trailing = TRUE, flag = " "),
-                            formatC(trimmed_sounding_list[[i]][[2]][[j, 6]], # WD
-                                    width = 3, format = "d", flag = " "),
-                            formatC(trimmed_sounding_list[[i]][[2]][[j, 7]], # WS
-                                    width = 5, format = "f", decimal.mark = ".", 
-                                    digits = 1, flag = " "),
-                            sep = ',')
+      data_line[j] <- 
+        paste(formatC(trimmed_sounding_list[[i]][[2]][[j, 2]], # pressure
+                      width = 9, format = "f", digits = 1, flag = " "),
+              ",",
+              formatC(trimmed_sounding_list[[i]][[2]][[j, 3]], # height
+                      width = 6, format = "f", digits = 0, flag = " "),
+              ",",
+              ifelse(trimmed_sounding_list[[i]][[2]][[j, 4]] > 900, 
+                     formatC(999.9, width = 5, format = "f",
+                             digits = 1, flag = " "),
+                     formatC(trimmed_sounding_list[[i]][[2]][[j, 4]] + 273, # temp
+                             width = 2, format = "f", digits = 1, flag = " ")),
+              ",",
+              ifelse(trimmed_sounding_list[[i]][[2]][[j, 6]] > 900,
+                     formatC(999, width = 3, format = "f",
+                             digits = 0, flag = " "),
+                     formatC(trimmed_sounding_list[[i]][[2]][[j, 6]], # WD
+                             width = 3, format = "f", digits = 0, flag = " ")),
+              ",",
+              ifelse(trimmed_sounding_list[[i]][[2]][[j, 7]] > 900,
+                     formatC(999.9, width = 5, format = "f",
+                             digits = 1, flag = " "),                
+                     formatC(trimmed_sounding_list[[i]][[2]][[j, 7]], # WS
+                             width = 5, format = "f", 
+                             digits = 1, flag = " ")),
+              sep = '')
       
       
       
