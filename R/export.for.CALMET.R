@@ -236,5 +236,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     # Close loop for header line
   }
   
+  # Remove objects from global environment
+  rm(header_line_constant, header_line, data_line, export_all_times, i, j, k)
+  
   # Close the function
 }
