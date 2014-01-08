@@ -174,9 +174,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                                           nc = 1) 
       data_line[j] <- paste(formatC(trimmed_sounding_list[[i]][[2]][[j, 2]], # pressure
                                     width = 9, format = "f", digits = 1, flag = " "),
-                            formatC(trimmed_sounding_list[[i]][[2]][[j, 3]], # height
-                                    width = 4, format = "f", decimal.mark = ".", 
-                                    digits = 0, drop0trailing = TRUE, flag = " "),
+                            formatC(sprintf(trimmed_sounding_list[[i]][[2]][[j, 3]], # height
+                                    fmt='%#.0g'), width = 5),
                             formatC(trimmed_sounding_list[[i]][[2]][[j, 4]] + 273, # temp
                                     width = 3, format = "f", decimal.mark = ".", 
                                     digits = 1, drop0trailing = TRUE, flag = " "),
