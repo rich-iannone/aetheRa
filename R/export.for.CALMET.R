@@ -152,22 +152,26 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   
   # Start loop for header line
   
-  
-  header_line <- 
-    paste(header_line_constant,
-          trimmed_sounding_list[[1]][[1]][[4]],
-          formatC(trimmed_sounding_list[[1]][[1]][[3]], # month
-                  width = 2, flag = " "),
-          formatC(trimmed_sounding_list[[1]][[1]][[3]], # day
-                  width = 2, flag = " "),
-          formatC(trimmed_sounding_list[[1]][[1]][[2]], # hour
-                  width = 2, flag = " "),
-          formatC(trimmed_sounding_list[[1]][[1]][[14]] - 3, # lines
-                  width = 7, flag = " "),
-          formatC(trimmed_sounding_list[[1]][[1]][[14]] - 3, # lines
-                  width = 33, flag = " "),
-          sep = '')
-
+  for (i in 1:length(trimmed_sounding_list)) {
+    header_line <- 
+      paste(header_line_constant,
+            trimmed_sounding_list[[1]][[1]][[4]],
+            formatC(trimmed_sounding_list[[1]][[1]][[3]], # month
+                    width = 2, flag = " "),
+            formatC(trimmed_sounding_list[[1]][[1]][[3]], # day
+                    width = 2, flag = " "),
+            formatC(trimmed_sounding_list[[1]][[1]][[2]], # hour
+                    width = 2, flag = " "),
+            formatC(trimmed_sounding_list[[1]][[1]][[14]] - 3, # lines
+                    width = 7, flag = " "),
+            formatC(trimmed_sounding_list[[1]][[1]][[14]] - 3, # lines
+                    width = 33, flag = " "),
+            sep = '')
+    
+    
+    
+    # Close loop for header line
+  }
   
   # Close the function
 }
