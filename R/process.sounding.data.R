@@ -54,7 +54,7 @@ process.sounding.stations <- function(sounding_data = sounding_data){
   # list number)
   list_item <- 0
   
-  # Use a while loop to cycle through the 'sounding_data' object and extract element
+  # Use a while loop to cycle through the 'sounding_data' object and extract elements
   while ( i < length(sounding_data)) {
     header_254 <- read.table(textConnection(sounding_data[i]),
                              stringsAsFactors = FALSE)
