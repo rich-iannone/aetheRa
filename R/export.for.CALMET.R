@@ -145,7 +145,8 @@ export.for.CALMET <- function(sounding_list = sounding_list,
   }
   
   # Remove objects from global environment
-  rm(trim_number_from_left, trim_number_from_right)
+  rm(trim_number_from_left, trim_number_from_right,
+     above_req_date_time, below_req_date_time)
   
   # Construct the first portion of header line, which is constant throughout
   header_line_constant <- paste("   6201     94240   ")
