@@ -84,7 +84,9 @@ get.sounding.stations <- function(){
     
     if (i == length(lines)) {
       # Create data frame with vector objects of equal length 
-      df_soundings <- as.data.frame(cbind(init, wban, wmo, lat, lon, elev, station_name, prov_state, country), stringsAsFactors = FALSE)
+      df_soundings <- as.data.frame(cbind(init, wban, wmo, lat, lon,
+                                          elev, station_name, prov_state,
+                                          country), stringsAsFactors = FALSE)
       
       # Change object class for lat, lon, and elev in 'df_soundings' data frame
       df_soundings[,4] <- as.numeric(df_soundings[,4])
@@ -92,7 +94,8 @@ get.sounding.stations <- function(){
       df_soundings[,6] <- as.numeric(df_soundings[,6])
       
       # Remove objects from global environment
-      rm(i, init, wban, wmo, lat, lon, elev, station_name, prov_state, country, URI, pattern, lines )
+      rm(i, init, wban, wmo, lat, lon, elev, station_name, prov_state,
+         country, URI, pattern, lines)
     }
   }
   
