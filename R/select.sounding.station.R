@@ -84,4 +84,7 @@ select.sounding.station <- function(df_soundings = df_soundings,
                target_station$wmo, ", wban ", target_station$wban, " (",
                target_station$station_name, ")", sep = ''))
   }
+ 
+  # Close the function
 }
+
