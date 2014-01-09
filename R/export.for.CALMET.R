@@ -99,7 +99,10 @@ export.for.CALMET <- function(sounding_list = sounding_list,
     stop("Requested time frame for data is not entirely available in processed dataset.")
   }
   
+  ####
   # Subset the list object
+  ####
+  
   # Find how many values of the list need to be trimmed from the beginning then
   # trim those list items and save as a new list object
   for (i in 1:length(sounding_list)) {
