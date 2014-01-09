@@ -14,7 +14,6 @@ select.sounding.station <- function(df_soundings = df_soundings,
                                     upper_elev = NULL
 ){
 
-  ## stuff here
   # Test parameter inputs
   #
   #
