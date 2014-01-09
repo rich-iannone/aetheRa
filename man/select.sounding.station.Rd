@@ -22,7 +22,7 @@ select.sounding.station(df_soundings = df_soundings,
                         lower_long = NULL,
                         upper_long = NULL,
                         lower_elev = NULL,
-                        upper_elev = NULL
+                        upper_elev = NULL)
 }
 
 \arguments{
@@ -42,6 +42,30 @@ select.sounding.station(df_soundings = df_soundings,
  
 }
   \item{search_wmo}{
+ 
+}
+  \item{search_prov_state}{
+
+}
+  \item{search_country}{
+
+}
+  \item{lower_lat}{
+
+}
+  \item{upper_lat}{
+
+}
+  \item{lower_long}{
+ 
+}
+  \item{upper_long}{
+ 
+}
+  \item{lower_elev}{
+ 
+}
+  \item{upper_elev}{
  
 }
 }
@@ -72,10 +96,18 @@ Richard Iannone
 \examples{
 #
 
-export.for.CALMET(export_all_times = FALSE
-                  start_date = "2013-01-01"
-                  start_hour = 0
-                  end_date = "2013-12-31"
-                  end_hour = 0
-                  top_pressure_level = 500)
+select.sounding.station(df_soundings = df_soundings,
+                        id_by_wban_wmo = NULL,
+                        search_station_name = NULL,
+                        search_init = NULL,
+                        search_wban = NULL,
+                        search_wmo = NULL,
+                        search_prov_state = NULL,
+                        search_country = NULL,
+                        lower_lat = NULL,
+                        upper_lat = NULL,
+                        lower_long = NULL,
+                        upper_long = NULL,
+                        lower_elev = NULL,
+                        upper_elev = NULL)
 }
