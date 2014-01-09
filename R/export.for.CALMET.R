@@ -70,7 +70,7 @@ export.for.CALMET <- function(sounding_list = sounding_list,
                     yday(as.POSIXct(end_date, origin = "1970-01-01", tz = "GMT")),
                     "    ",
                     "1 ",
-                    "500.",
+                    top_pressure_level, ".",
                     "    2    2",
                     sep = '')
   header_6 <- "F    F    F    F"
