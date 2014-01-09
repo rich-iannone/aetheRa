@@ -58,18 +58,19 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
     stop("Only use one of 'search_init', 'search_wban', or 'search_wmo' search parameters")
   }
   
-  # If a search by 'init' is requested, subset the stations data frame
-  if (!is.null(search_init)) df_soundings.subset <- subset(df_soundings,
-                                                           df_soundings$init == search_init)
-  if (!is.null(search_init) &
-        exists("df_soundings.subset") & 
-        nrow(df_soundings.subset) == 1) target_station <- df_soundings.subset
-  if (exists("target_station")) {
-    assign("target_station", target_station, envir = .GlobalEnv)
-    return(paste("The following station was identified and set as the target station: wmo ",
-                 target_station$wmo, ", wban ", target_station$wban, " (",
-                 target_station$station_name, ")", sep = ''))
-  }
+#   # If a search by 'init' is requested, subset the stations data frame
+#   if (!is.null(search_init)) df_soundings.subset <- subset(df_soundings,
+#                                                            df_soundings$init == search_init)
+#   if (!is.null(search_init) &
+#         exists("df_soundings.subset")) {
+#         ifelse(nrow(df_soundings.subset) == 1,
+#                assign("target_station", df_soundings.subset, envir = .GlobalEnv), NULL)
+#   
+#   if (exists("target_station")) {
+#     return(paste("The following station was identified and set as the target station: wmo ",
+#                  target_station$wmo, ", wban ", target_station$wban, " (",
+#                  target_station$station_name, ")", sep = ''))
+#   }
   
   # If a search by 'wban' is requested, subset the stations data frame
   if (!is.null(search_wban)) df_soundings.subset <- subset(df_soundings,
