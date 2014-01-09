@@ -1,5 +1,5 @@
 \name{Search for and select a sounding station}
-\alias{export.for.CALMET}
+\alias{select.sounding.station}
 \title{
 Using upper air sounding data, create an UP.DAT input file for the CALMET model
 }
