@@ -75,9 +75,21 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # If a search by 'wban' is requested, subset the stations data frame
   if (!is.null(search_wban)) df_soundings.subset <- subset(df_soundings,
                                                            df_soundings$wban == search_wban)
+  
   if (!is.null(search_wban) &
-        exists("df_soundings.subset") & 
-        nrow(df_soundings.subset) == 1) target_station <- df_soundings.subset
+        exists("df_soundings.subset")) {
+    if (nrow(df_soundings.subset) == 0) {
+      return(paste("No stations were identified from this search"))
+    }
+  }
+  
+  if (!is.null(search_wban) &
+        exists("df_soundings.subset")) {
+        if (nrow(df_soundings.subset) == 1) {
+          assign("target_station", df_soundings.subset, envir = .GlobalEnv)
+        }
+  }
+  
   if (exists("target_station")) {
     assign("target_station", target_station, envir = .GlobalEnv)
     return(paste("The following station was identified and set as the target station: wmo ",
