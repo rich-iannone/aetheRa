@@ -1,5 +1,4 @@
-select.sounding.station <- function(df_soundings = df_soundings,
-                                    id_by_wban_wmo = NULL,
+select.sounding.station <- function(id_by_wban_wmo = NULL,
                                     search_station_name = NULL,
                                     search_init = NULL,
                                     search_wban = NULL,
@@ -87,5 +86,4 @@ select.sounding.station <- function(df_soundings = df_soundings,
  
   # Close the function
 }
-
 
