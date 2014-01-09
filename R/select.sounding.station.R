@@ -91,12 +91,22 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   }
   
   if (exists("target_station")) {
-    assign("target_station", target_station, envir = .GlobalEnv)
     return(paste("The following station was identified and set as the target station: wmo ",
-               target_station$wmo, ", wban ", target_station$wban, " (",
-               target_station$station_name, ")", sep = ''))
+                 target_station$wmo, ", wban ", target_station$wban, " (",
+                 target_station$station_name, ")", sep = ''))
+  }
+  
+  if (!is.null(search_wban) &
+        exists("df_soundings.subset")) {
+    if (nrow(df_soundings.subset) > 100) {
+      return(paste("A total of ", nrow(df_soundings.subset),
+                   " stations were identified from this search",
+                   sep = ''))
+    }
+    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
+      return(df_soundings.subset)
+    }
   }
  
   # Close the function
 }
-
