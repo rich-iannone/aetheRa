@@ -1,4 +1,4 @@
-process.sounding.stations <- function(sounding_data = sounding_data){
+process.sounding.stations <- function(){
 
   # Include require statements
   require(RCurl)
