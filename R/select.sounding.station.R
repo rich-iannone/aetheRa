@@ -282,5 +282,9 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   #####
   # If a search by elevation is requested, subset the stations data frame
   ####
+  
+#   lower_elev
+#   upper_elev
+  
   # Close the function
 }
