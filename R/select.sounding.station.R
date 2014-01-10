@@ -170,6 +170,10 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
     }
   }
   
+  #####
+  # If a search by 'prov/state' and/or 'country' is requested, subset the
+  # stations data frame
+  ####
   
   # Close the function
 }
