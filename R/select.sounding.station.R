@@ -247,5 +247,20 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
       return(paste("No stations were identified from this search"))
     }
   }
+  
+  # If a subset was generated and is of single length, then a match has occurred
+  # Need to assign the subset as 'target_station' in the global environment and
+  # return a notification that a match was found
+  if (!is.null(lower_lat) & !is.null(upper_lat) &
+        !is.null(lower_long) & !is.null(upper_long) &
+        exists("df_soundings.subset")) {
+    if (nrow(df_soundings.subset) == 1) {
+      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
+      return(paste("The following station was identified and set ",
+                   "as the target station: wmo ",
+                   target_station$wmo, ", wban ", target_station$wban,
+                   " (", target_station$station_name, ")", sep = ''))
+    }
+  }
   # Close the function
 }
