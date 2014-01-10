@@ -227,5 +227,16 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   #####
   # If a search by bounding box is requested, subset the stations data frame
   ####
+  
+  # Initial subset
+  if (!is.null(lower_lat) & !is.null(upper_lat) &
+        !is.null(lower_long) & !is.null(upper_long)) {
+    df_soundings.subset <- subset(df_soundings,
+                                  df_soundings$lat >= lower_lat &
+                                    df_soundings$lat <= upper_lat &
+                                    df_soundings$lon >= lower_long &
+                                    df_soundings$lon <= upper_long)
+  }
+  
   # Close the function
 }
