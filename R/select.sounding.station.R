@@ -175,5 +175,15 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # stations data frame
   ####
   
+  # Initial subset
+  if (!is.null(search_prov_state) & is.null(search_country)) {
+    df_soundings.subset <- subset(df_soundings, df_soundings$prov_state == search_prov_state)
+  } else if (is.null(search_prov_state) & !is.null(search_country)) {
+    df_soundings.subset <- subset(df_soundings, df_soundings$country == search_country)
+  } else if (!is.null(search_prov_state) & !is.null(search_country)) {
+    df_soundings.subset <- subset(df_soundings,
+                                  df_soundings$prov_state == search_prov_state &
+                                    df_soundings$country == search_country)
+  }
   # Close the function
 }
