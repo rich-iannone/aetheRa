@@ -208,5 +208,20 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                    " (", target_station$station_name, ")", sep = ''))
     }
   }
+  
+  # If a subset was generated that contains >100 records, return a notification
+  # stating the number of stations found (but don't return a df object)
+  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
+  if (!is.null(search_prov_state) | !is.null(search_country) &
+        exists("df_soundings.subset")) {
+    if (nrow(df_soundings.subset) > 100) {
+      return(paste("A total of ", nrow(df_soundings.subset),
+                   " stations were identified from this search",
+                   sep = ''))
+    }
+    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
+      return(df_soundings.subset)
+    }
+  }
   # Close the function
 }
