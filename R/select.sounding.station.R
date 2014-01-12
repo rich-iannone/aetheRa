@@ -283,6 +283,16 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # If a search by elevation is requested, subset the stations data frame
   ####
   
+  # Initial subset
+  if (!is.null(lower_elev) & is.null(upper_elev)) {
+    df_soundings.subset <- subset(df_soundings, df_soundings$elev >= lower_elev)
+  } else if (is.null(lower_elev) & !is.null(upper_elev)) {
+    df_soundings.subset <- subset(df_soundings, df_soundings$elev <= upper_elev)
+  } else if (!is.null(lower_elev) & !is.null(upper_elev)) {
+    df_soundings.subset <- subset(df_soundings,
+                                  df_soundings$elev >= lower_elev &
+                                    df_soundings$elev <= upper_elev)
+  }
   
   # Close the function
 }
