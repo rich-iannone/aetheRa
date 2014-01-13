@@ -20,8 +20,10 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # Stop the function if the supplied search string for 'id_by_wban_wmo' is not
   # properly formed
   if (!is.null(id_by_wban_wmo)) {
-    if (regexpr("^[0-9]+?-[0-9]+?$", id_by_wban_wmo)[1] != 1)
-    stop("Use a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO")
+    if (regexpr("^[0-9]+?-[0-9]+?$", id_by_wban_wmo)[1] != 1) {
+      stop("Use a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO")
+    }
+  }
   }
   
   #####
