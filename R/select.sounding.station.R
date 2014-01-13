@@ -17,7 +17,11 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # Select a station using the combination of WBAN and WMO numbers
   ##### 
   
-  
+  # Check that the supplied search string for 'id_by_wban_wmo' is properly formed
+  if (!is.null(id_by_wban_wmo)) {
+    if (regexpr("^[0-9]+?-[0-9]+?$", id_by_wban_wmo)[1] != 1)
+    stop("Use a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO")
+  }
   
   #####
   # Search the data frame using the search parameters
