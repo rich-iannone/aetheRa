@@ -24,6 +24,16 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
       stop("Use a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO")
     }
   }
+  
+  # Initial subset
+  if (!is.null(id_by_wban_wmo)) {
+    df_soundings.subset <- subset(df_soundings,
+                                  df_soundings$wban ==
+                                    strsplit(id_by_wban_wmo, "-")[[1]][[1]] &
+                                    df_soundings$wmo ==
+                                    strsplit(id_by_wban_wmo, "-")[[1]][[2]])
+  }
+  
   }
   
   #####
