@@ -34,6 +34,15 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                                     strsplit(id_by_wban_wmo, "-")[[1]][[2]])
   }
   
+  # If a subset was generated and is of zero length, return notification that
+  # no stations were found
+  if (!is.null(id_by_wban_wmo) &
+        exists("df_soundings.subset")) {
+    if (nrow(df_soundings.subset) == 0) {
+      return(paste("No stations were identified."))
+    }
+  }
+  
   }
   
   #####
