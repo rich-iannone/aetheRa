@@ -7,8 +7,8 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                                     search_country = NULL,
                                     lower_lat = NULL,
                                     upper_lat = NULL,
-                                    lower_long = NULL,
-                                    upper_long = NULL,
+                                    lower_lon = NULL,
+                                    upper_lon = NULL,
                                     lower_elev = NULL,
                                     upper_elev = NULL
 ){
@@ -274,18 +274,18 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   
   # Initial subset
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_long) & !is.null(upper_long)) {
+        !is.null(lower_lon) & !is.null(upper_lon)) {
     df_soundings.subset <- subset(df_soundings,
                                   df_soundings$lat >= lower_lat &
                                     df_soundings$lat <= upper_lat &
-                                    df_soundings$lon >= lower_long &
-                                    df_soundings$lon <= upper_long)
+                                    df_soundings$lon >= lower_lon &
+                                    df_soundings$lon <= upper_lon)
   }
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_long) & !is.null(upper_long) &
+        !is.null(lower_lon) & !is.null(upper_lon) &
         exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) == 0) {
       return(paste("No stations were identified from this search"))
@@ -296,7 +296,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_long) & !is.null(upper_long) &
+        !is.null(lower_lon) & !is.null(upper_lon) &
         exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) == 1) {
       assign("target_station", df_soundings.subset, envir = .GlobalEnv)
@@ -311,7 +311,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # stating the number of stations found (but don't return a df object)
   # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_long) & !is.null(upper_long) &
+        !is.null(lower_lon) & !is.null(upper_lon) &
         exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) > 100) {
       return(paste("A total of ", nrow(df_soundings.subset),
