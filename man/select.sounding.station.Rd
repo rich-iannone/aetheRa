@@ -1,16 +1,15 @@
 \name{Search for and select a sounding station}
 \alias{select.sounding.station}
 \title{
-Using upper air sounding data, create an UP.DAT input file for the CALMET model
+Filter and select a sounding station from a larger collection
 }
 
 \description{
-This function creates an UP.DAT file for use in the CALMET meteorological model.
+This function allows for the isolation of a single station which, upon successful matching, becomes the target station for subsequent analyses.
 }
 
 \usage{
-select.sounding.station(df_soundings = df_soundings,
-                        id_by_wban_wmo = NULL,
+select.sounding.station(id_by_wban_wmo = NULL,
                         search_station_name = NULL,
                         search_init = NULL,
                         search_wban = NULL,
@@ -26,9 +25,6 @@ select.sounding.station(df_soundings = df_soundings,
 }
 
 \arguments{
-  \item{df_soundings}{
- 
-}
   \item{id_by_wban_wmo}{
  
 }
@@ -96,8 +92,7 @@ Richard Iannone
 \examples{
 #
 
-select.sounding.station(df_soundings = df_soundings,
-                        id_by_wban_wmo = NULL,
+select.sounding.station(id_by_wban_wmo = NULL,
                         search_station_name = NULL,
                         search_init = NULL,
                         search_wban = NULL,
