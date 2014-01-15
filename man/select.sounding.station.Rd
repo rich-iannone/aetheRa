@@ -26,10 +26,10 @@ select.sounding.station(id_by_wban_wmo = NULL,
 
 \arguments{
   \item{id_by_wban_wmo}{
- 
+  using the combination of WBAN and WMO numbers (with a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO), it is possible to uniquely identify a sounding station. When searching with this keyword, all other arguments for which values were supplied will be disregarded.
 }
   \item{search_station_name}{
- 
+ supplying search text in the form of a string will filter the list of available sounding stations and provide feedback on which stations were found. When searching with this keyword, all other arguments for which values were supplied will be disregarded.
 }
   \item{search_init}{
  
