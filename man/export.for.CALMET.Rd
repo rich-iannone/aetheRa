@@ -42,25 +42,10 @@ an ending hour must accompany the entry for 'end_date'. With 'export_all_times' 
 
 }
 
-\value{
-
-}
-
-\references{
-
-}
-
 \author{
 Richard Iannone
 }
 
-\note{
-
-}
-
-\seealso{
-
-}
 \examples{
 #
 
