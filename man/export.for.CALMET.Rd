@@ -9,8 +9,7 @@ This function creates an UP.DAT file for use in the CALMET meteorological model.
 }
 
 \usage{
-export.for.CALMET(sounding_list = sounding_list,
-                  export_all_times = FALSE,
+export.for.CALMET(export_all_times = FALSE,
                   start_date,
                   start_hour,
                   end_date,
