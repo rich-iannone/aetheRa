@@ -18,11 +18,8 @@ export.for.CALMET(export_all_times = FALSE,
 }
 
 \arguments{
-  \item{sounding_list}{
- 
-}
   \item{export_all_times}{
- 
+providing TRUE for this will create an UP.DAT file with time bounds matching those in the 'sounding_list' list object (created after use of the 'process.sounding.data' function). The default is set to FALSE, in which case values for the arguments 'start_date', 'start_hour', 'end_date', and 'end_hour' must be supplied.
 }
   \item{start_date}{
  
