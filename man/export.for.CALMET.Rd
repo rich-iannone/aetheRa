@@ -47,8 +47,8 @@ Richard Iannone
 }
 
 \examples{
-#
-
+# After generating the 'sounding_list' object (from use of the 'process.sounding.data' function),
+# generate a CALMET UP.DAT file for 2013, constraining the output to the 500 hPa pressure level
 export.for.CALMET(export_all_times = FALSE
                   start_date = "2013-01-01"
                   start_hour = 0
