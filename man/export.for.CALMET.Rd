@@ -34,7 +34,7 @@ an ending date intended for the UP.DAT output should be supplied if 'export_all_
 an ending hour must accompany the entry for 'end_date'. With 'export_all_times' set to FALSE, explicit dates and times for starting and ending periods must be set. The format for 'end_hour' is numeric.
 }
   \item{top_pressure_level}{
-the top pressure level to which sounding data should be constrained.
+the top pressure level to which sounding data should be constrained. A numeric value, representing atmospheric pressure in hPa units, should be supplied.
 }
 }
 
