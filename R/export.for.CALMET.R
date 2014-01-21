@@ -20,12 +20,12 @@ export.for.CALMET <- function(export_all_times = FALSE,
   # Test parameter inputs
   #
   #
-  export_all_times <- FALSE
-  start_date <- "2013-01-01"
-  start_hour <- 0
-  end_date <- "2013-12-31"
-  end_hour <- 0
-  top_pressure_level <- 500
+export_all_times <- FALSE
+start_date <- start_date
+start_hour <- start_hour
+end_date <- end_date
+end_hour <- end_hour
+#   top_pressure_level <- 500
   #
   #
   ####
@@ -224,6 +224,9 @@ export.for.CALMET <- function(export_all_times = FALSE,
   # Remove objects from global environment
   rm(header_line_constant, header_line, data_line,
      export_all_times, top_pressure_level, i, j, k)
+  
+  # Add notification that UP.DAT file generated and placed in the working folder
+  print(paste("An UP.DAT file was generated and placed in the working folder"))
   
   # Close the function
 }
