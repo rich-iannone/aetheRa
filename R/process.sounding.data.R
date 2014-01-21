@@ -77,6 +77,29 @@ process.sounding.stations <- function(){
       
     header_1 <- read.table(textConnection(sounding_data[i + 1]),
                            stringsAsFactors = FALSE)
+    
+    # Need to check and correct for those situations where the lat value is merged with
+    # the lon value
+    if (grepl("W", header_1$V4) | grepl("E", header_1$V4)) {
+      # Get regex pattern using look-around assertions
+      if (grepl("N", header_1$V4)) split_pattern <- "(?<=N)(?=[0-9])"
+      if (grepl("S", header_1$V4)) split_pattern <- "(?<=S)(?=[0-9])"
+      # Apply 'strsplit' to vector item and obtain the separated lat/lon values
+      lat <- unlist(strsplit(header_1$V4, split_pattern, perl = TRUE))[1]
+      lon <- unlist(strsplit(header_1$V4, split_pattern, perl = TRUE))[2]
+      # Add column 7 to 'header_1'
+      V7 <- 0
+      header_1 <- cbind(header_1, V7)
+      # Move columns 5 & 6 to columns 6 & 7
+      header_1$V7 <- header_1$V6
+      header_1$V6 <- header_1$V5
+      # Copy lat and lon values to columns 4 & 5
+      header_1$V4 <- lat
+      header_1$V5 <- lon
+      # Remove variables
+      rm(split_pattern, lat, lon, V7)
+    }
+    
     colnames(header_1) <- c("lintyp_1", "wban", "wmo", "lat",
                             "lon", "elev", "rtime")
     
