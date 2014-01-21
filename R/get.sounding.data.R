@@ -86,8 +86,14 @@ get.sounding.data <- function(start_date,
   df_soundings <- get.sounding.stations()
   
   # Get Station information
-  if (!is.null(station_number) & is.null(station_wban_wmo)) {
-    station_list_position <- station_number
+  if (is.null(station_number) & is.null(station_wban_wmo)) {
+    if (exists("target_station")) station_list_position <- as.numeric(row.names(target_station))
+  } else if (!is.null(station_number) & is.null(station_wban_wmo)) {
+    # If a 'target_station' was set using the 'select.sounding.station' function,
+    # get the 'station_list_position' value from that
+    if (exists("target_station")) station_list_position <- as.numeric(row.names(target_station))
+    # If no 'target_station' set, defer to using the 'station_number' value
+    if (!exists("target_station")) station_list_position <- station_number
   } else if (is.null(station_number) & !is.null(station_wban_wmo)) {
     wban_wmo_list <- as.data.frame(cbind(df_soundings$wban, df_soundings$wmo))
     wban_wmo_list$V3 <- do.call(paste, c(wban_wmo_list[c("V1", "V2")], sep = "-"))
