@@ -13,7 +13,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                                     upper_elev = NULL){
   
   
-  # Check for existance of 'df_soundings' object, created by the
+  # Check for existence of 'df_soundings' object, created by the
   # 'get.sounding.data' function; if the object doesn't exist, stop the function
   # with a message
   if (!exists("df_soundings")) {
