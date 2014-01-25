@@ -11,7 +11,11 @@ get.sounding.stations <- function(){
                       "osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29",
                       sep = ''))
   
-  # Create a 'pattern' string object containing the regex pattern for extracting
+  if(grepl("Service Temporarily Unavailable", URI) == TRUE) {
+    stop("The NOAA DB server is reporting that it's temporarily unavailable.")
+  }
+  
+  # Create a 'pattern' string object cdontaining the regex pattern for extracting
   # sounding data strings from the URI
   pattern <- paste("<OPTION> [0-9A-Z]*[ ]*[0-9]* [0-9]{5} [0-9/.-]*",
                    "[0-9/.-]* [0-9-]{5,6}  [.]*  [0-9A-Z]{2} [0-9A-Z]{2}",
