@@ -14,6 +14,11 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
 ){
   
   #####
+  # Search the data frame for a station name
+  ##### 
+  
+  
+  #####
   # Select a station using the combination of WBAN and WMO numbers
   ##### 
   
