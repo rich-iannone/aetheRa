@@ -59,6 +59,18 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
       return(df_soundings.subset)
     }
   }
+    
+  if (!is.null(search_station_name)) {
+    if (sum(matches) == 1) {
+      for (j in 1:length(matches)) {
+        if (j == 1) df_soundings.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
+        if (matches[j] == 1) df_soundings.subset <- rbind(df_soundings.subset, df_soundings[j,])
+      }
+      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
+      return(paste("The target station is now available with the following ",
+                   "identifiers: wmo ",
+                   target_station$wmo, ", wban ", target_station$wban,
+                   " (", target_station$station_name, ")", sep = ''))
     }
     match_rows <- as.vector(match_rows)
   }
