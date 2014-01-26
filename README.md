@@ -14,14 +14,14 @@ install_github('aetheRa', 'rich-iannone')
 
 ### Features
 
-- fetching a current listing of sounding sites from the NOAA Radiosonde database
-- selection and retrieval of data for a sounding location over a specified time interval
-- exporting the sounding data into a format suitable for atmospheric dispersion modelling (i.e., CALMET `UP.DAT` file)
+- fetch a current listing of sounding sites and metadata from the NOAA Radiosonde database
+- search and filter through the available sites using various keywords
+- select and retrieve data for a sounding location over a specified time interval
+- export the sounding data into a format suitable for atmospheric dispersion modelling (i.e., CALMET `UP.DAT` file)
 
 ### Future Additions
 
-- finding the nearest sounding location or a set within geographic bounds
-- creating a visualization of the sounding data for specific days or periods
-- determining the data completeness of a site's dataset during a specified time interval
-- repairing a dataset using sounding site substitution and/or interpolation/extrapolation
-- creating skewT plots and logP diagrams
+- create a visualization of the sounding data for specific days or periods
+- determine the data completeness of a site's dataset during a specified time interval
+- repair a dataset using sounding site substitution and/or interpolation/extrapolation
+- create skewT plots and logP diagrams
