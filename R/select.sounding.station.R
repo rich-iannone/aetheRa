@@ -25,7 +25,31 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # Search the data frame for a station name
   ##### 
   
+  # test
+  # search_station_name <- "jan"
   
+  if(!is.null(search_station_name)) {
+    list_of_station_names <- tolower(df_soundings$station_name)
+    for (i in 1:length(list_of_station_names)){
+      if (i == 1) matches <- mat.or.vec(nr = length(list_of_station_names), nc = 1)
+      matches[i] <- grepl(search_station_name,
+                          gsub("\\(|\\)|\\/|\\\\", " ",
+                               list_of_station_names[i]))
+    }
+    if (max(unique(matches)) < 1) {
+      stop("The search resulted in no matches.")
+    }
+    for (j in 1:length(matches)) {
+      if (j == 1) match_rows <- mat.or.vec(nr = 0, nc = 1)
+      if (matches[j] == 1) {
+        matched_row <- j
+        match_rows <- rbind(match_rows, matched_row)
+      }
+    }
+    match_rows <- as.vector(match_rows)
+  }
+  
+
   #####
   # Select a station using the combination of WBAN and WMO numbers
   ##### 
