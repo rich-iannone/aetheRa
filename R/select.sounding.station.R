@@ -56,6 +56,9 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
         if (j == 1) df_soundings.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
         if (matches[j] == 1) df_soundings.subset <- rbind(df_soundings.subset, df_soundings[j,])
       }
+      return(df_soundings.subset)
+    }
+  }
     }
     match_rows <- as.vector(match_rows)
   }
