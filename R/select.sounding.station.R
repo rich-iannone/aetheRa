@@ -25,9 +25,6 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # Search the data frame for a station name
   ##### 
   
-  # test
-  # search_station_name <- "jan"
-  
   if(!is.null(search_station_name)) {
     list_of_station_names <- tolower(df_soundings$station_name)
     for (i in 1:length(list_of_station_names)){
