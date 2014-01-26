@@ -33,7 +33,10 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                           gsub("\\(|\\)|\\/|\\\\", " ",
                                list_of_station_names[i]))
     }
-    if (max(unique(matches)) < 1) {
+  }
+    
+  if (!is.null(search_station_name)) {
+    if (max(unique(matches)) < 1 & sum(matches) == 0) {
       stop("The search resulted in no matches.")
     }
     for (j in 1:length(matches)) {
