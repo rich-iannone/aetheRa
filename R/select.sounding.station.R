@@ -29,7 +29,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
     list_of_station_names <- tolower(df_soundings$station_name)
     for (i in 1:length(list_of_station_names)){
       if (i == 1) matches <- mat.or.vec(nr = length(list_of_station_names), nc = 1)
-      matches[i] <- grepl(search_station_name,
+      matches[i] <- grepl(tolower(search_station_name),
                           gsub("\\(|\\)|\\/|\\\\", " ",
                                list_of_station_names[i]))
     }
