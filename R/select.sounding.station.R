@@ -72,9 +72,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                    target_station$wmo, ", wban ", target_station$wban,
                    " (", target_station$station_name, ")", sep = ''))
     }
-    match_rows <- as.vector(match_rows)
   }
-  
 
   #####
   # Select a station using the combination of WBAN and WMO numbers
