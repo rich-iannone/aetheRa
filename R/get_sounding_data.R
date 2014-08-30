@@ -15,7 +15,7 @@
 #' \dontrun{
 #' # Get all FSL sounding data for the station with WBAN 99999 and
 #  # WMO 01001 (Jan Mayen) for the year 2012
-#' sounding_data <- get.sounding.data(start_date = "2012-01-01",
+#' sounding_data <- get_sounding_data(start_date = "2012-01-01",
 #'                                    end_date = "2012-12-31",
 #'                                    hour_type = "all",
 #'                                    level_type = "all",
