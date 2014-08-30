@@ -1,5 +1,4 @@
-aetheRa
-=======
+<img src="inst/AetheRa.png" width="75%">
 
 Tools to acquire and work with upper air data. Discover where the data is, read it in, process that data.
 
