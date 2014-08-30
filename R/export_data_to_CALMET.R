@@ -19,12 +19,12 @@
 #'                   top_pressure_level = 500)
 #'}
 
-export.for.CALMET <- function(export_all_times = FALSE,
-                              start_date,
-                              start_hour,
-                              end_date,
-                              end_hour,
-                              top_pressure_level){
+export_data_to_CALMET <- function(export_all_times = FALSE,
+                                  start_date,
+                                  start_hour,
+                                  end_date,
+                                  end_hour,
+                                  top_pressure_level){
   
   # Include require statements
   require(RCurl)
