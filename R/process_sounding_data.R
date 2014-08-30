@@ -1,6 +1,6 @@
 #' Process sounding data
 #' @description Using upper air sounding data, create a list object that can be used for analysis.
-#' @export process.sounding.stations
+#' @export process_sounding_stations
 #' @examples
 #' \dontrun{
 #' # Process sounding data created by the 'get.sounding.data' function
