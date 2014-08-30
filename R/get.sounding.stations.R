@@ -122,6 +122,5 @@ get.sounding.stations <- function(){
 #   if (exists("df_soundings")) {
 #     print(paste("Sounding information was downloaded and assigned as object 'df_soundings'."))
 #   }
-#   
-#   # Close function
+
 }
