@@ -459,5 +459,4 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
     }
   }
   
-  # Close the function
 }
