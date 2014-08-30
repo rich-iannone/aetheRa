@@ -11,12 +11,12 @@
 #' \dontrun{
 #' # After generating the 'sounding_list' object (from use of the 'process.sounding.data' function),
 #' # generate a CALMET UP.DAT file for 2013, constraining the output to the 500 hPa pressure level
-#' export.for.CALMET(export_all_times = FALSE
-#'                   start_date = "2013-01-01"
-#'                   start_hour = 0
-#'                   end_date = "2013-12-31"
-#'                   end_hour = 0
-#'                   top_pressure_level = 500)
+#' export_data_to_CALMET(export_all_times = FALSE
+#'                       start_date = "2013-01-01"
+#'                       start_hour = 0
+#'                       end_date = "2013-12-31"
+#'                       end_hour = 0
+#'                       top_pressure_level = 500)
 #'}
 
 export_data_to_CALMET <- function(export_all_times = FALSE,
