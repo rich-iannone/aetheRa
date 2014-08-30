@@ -13,7 +13,7 @@
 #' @param upper_lon 
 #' @param lower_elev 
 #' @param upper_elev 
-#' @export select.sounding.station
+#' @export select_sounding_station
 #' @examples
 #' \dontrun{
 #' # Get a subset of sounding stations in Canada
