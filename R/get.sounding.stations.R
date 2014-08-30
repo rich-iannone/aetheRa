@@ -104,7 +104,7 @@ get.sounding.stations <- function(){
   }
   
   # Return object
-  df_soundings
+  return(df_soundings)
   
   # Assign object to global environment
   assign("df_soundings", df_soundings, envir = .GlobalEnv)
