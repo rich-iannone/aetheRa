@@ -1,5 +1,6 @@
 #' Get all available sounding stations in dataset
 #' @description Query the NOAA radiosonde database and create a data frame object that contains a current listing of all sounding stations for which data is available.
+#' @export get.sounding.stations
 #' @examples
 #' \dontrun{
 #' # Get the current listing of global soundings as a data frame
