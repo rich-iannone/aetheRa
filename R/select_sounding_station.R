@@ -17,7 +17,7 @@
 #' @examples
 #' \dontrun{
 #' # Get a subset of sounding stations in Canada
-#' sounding_station_subset <- select.sounding.station(search_country = CA)
+#' sounding_station_subset <- select_sounding_station(search_country = CA)
 #'}
 
 select_sounding_station <- function(id_by_wban_wmo = NULL,
