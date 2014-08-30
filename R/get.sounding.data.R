@@ -179,7 +179,7 @@ get.sounding.data <- function(start_date,
                                            output_file_name, sep = ''))
   
   # Return the 'sounding_data' object
-  sounding_data
+  return(sounding_data)
   
   # Assign object to global environment
   assign("sounding_data", sounding_data, envir = .GlobalEnv)
