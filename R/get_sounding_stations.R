@@ -4,7 +4,7 @@
 #' @examples
 #' \dontrun{
 #' # Get the current listing of global soundings as a data frame
-#' all_soundings <- get.sounding.stations()
+#' all_soundings <- get_sounding_stations()
 #'}
 
 get_sounding_stations <- function(){
