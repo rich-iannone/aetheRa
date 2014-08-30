@@ -4,7 +4,7 @@
 #' @examples
 #' \dontrun{
 #' # Process sounding data created by the 'get.sounding.data' function
-#' processed_data <- process.sounding.stations(sounding_data = sounding_data)
+#' processed_data <- process_sounding_stations(sounding_data = sounding_data)
 #'}
 
 process_sounding_stations <- function(sounding_data){
