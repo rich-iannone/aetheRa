@@ -216,5 +216,4 @@ get.sounding.data <- function(start_date,
     print(paste("Sounding data was downloaded and assigned as object 'sounding_data'."))
   }
   
-  # Close the function
 }
