@@ -249,5 +249,4 @@ end_hour <- end_hour
   # Add notification that UP.DAT file generated and placed in the working folder
   print(paste("An UP.DAT file was generated and placed in the working folder"))
   
-  # Close the function
 }
