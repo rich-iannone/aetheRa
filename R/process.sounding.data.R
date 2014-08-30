@@ -1,4 +1,13 @@
 process.sounding.stations <- function(){
+#' Process sounding data
+#' @description Using upper air sounding data, create a list object that can be used for analysis.
+#' @export process.sounding.stations
+#' @examples
+#' \dontrun{
+#' # Process sounding data created by the 'get.sounding.data' function
+#' processed_data <- process.sounding.stations(sounding_data = sounding_data)
+#'}
+
 
   # Include require statements
   require(RCurl)
