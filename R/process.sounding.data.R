@@ -185,12 +185,11 @@ process.sounding.stations <- function(sounding_data){
   return(sounding_list)
   
   # Assign object to global environment
-  assign("sounding_list", sounding_list, envir = .GlobalEnv)
+#   assign("sounding_list", sounding_list, envir = .GlobalEnv)
+#   
+#   # Add notification that data was downloaded and assigned to the global workspace
+#   if (exists("sounding_list")) {
+#     print(paste("Sounding data was processed and assigned as object 'sounding_list'."))
+#   }
   
-  # Add notification that data was downloaded and assigned to the global workspace
-  if (exists("sounding_list")) {
-    print(paste("Sounding data was processed and assigned as object 'sounding_list'."))
-  }
-  
-# Close the function
 }
