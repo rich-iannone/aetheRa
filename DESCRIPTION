@@ -5,6 +5,6 @@ Version: 0.1
 Date: 2013-12-30
 Author: Richard Iannone <riannone@me.com>
 Maintainer: Richard Iannone <riannone@me.com>
-Description: These functions allow you to perform retrieve upper air radiosonde data and process the data in useful ways.
+Description: These functions allow you to perform retrieve upper air radiosonde
+    data and process the data in useful ways.
 License: MIT
-
