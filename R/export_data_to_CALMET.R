@@ -6,7 +6,7 @@
 #' @param end_date an ending date intended for the UP.DAT output should be supplied if 'export_all_times' is set to FALSE (the default). The date should be supplied as a string in the format "YYYY-MM-DD".
 #' @param end_hour an ending hour must accompany the entry for 'end_date'. With 'export_all_times' set to FALSE, explicit dates and times for starting and ending periods must be set. The format for 'end_hour' is numeric.
 #' @param top_pressure_level the top pressure level to which sounding data should be constrained. A numeric value, representing atmospheric pressure in hPa units, should be supplied.
-#' @export export.for.CALMET
+#' @export export_data_to_CALMET
 #' @examples
 #' \dontrun{
 #' # After generating the 'sounding_list' object (from use of the 'process.sounding.data' function),
