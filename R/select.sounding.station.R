@@ -34,7 +34,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                                list_of_station_names[i]))
     }
   }
-    
+  
   if (!is.null(search_station_name)) {
     if (max(unique(matches)) < 1 & sum(matches) == 0) {
       stop("The search resulted in no matches.")
@@ -49,7 +49,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                    sep = ''))
     }
   }
-   
+  
   if (!is.null(search_station_name)) {
     if (sum(matches) > 1 & sum(matches) <= 100) {
       for (j in 1:length(matches)) {
@@ -59,7 +59,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
       return(df_soundings.subset)
     }
   }
-    
+  
   if (!is.null(search_station_name)) {
     if (sum(matches) == 1) {
       for (j in 1:length(matches)) {
@@ -73,7 +73,7 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
                    " (", target_station$station_name, ")", sep = ''))
     }
   }
-
+  
   #####
   # Select a station using the combination of WBAN and WMO numbers
   ##### 
@@ -205,13 +205,13 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
   # return a notification that a match was found
   if (!is.null(search_wban) &
         exists("df_soundings.subset")) {
-        if (nrow(df_soundings.subset) == 1) {
-          assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-          return(paste("The following station was identified and set ",
-                       "as the target station: wmo ",
-                       target_station$wmo, ", wban ", target_station$wban,
-                       " (", target_station$station_name, ")", sep = ''))
-        }
+    if (nrow(df_soundings.subset) == 1) {
+      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
+      return(paste("The following station was identified and set ",
+                   "as the target station: wmo ",
+                   target_station$wmo, ", wban ", target_station$wban,
+                   " (", target_station$station_name, ")", sep = ''))
+    }
   }
   
   # If a subset was generated that contains >100 records, return a notification
@@ -228,14 +228,14 @@ select.sounding.station <- function(id_by_wban_wmo = NULL,
       return(df_soundings.subset)
     }
   }
- 
+  
   #####
   # If a search by 'wmo' is requested, subset the stations data frame
   ####
   
   # Initial subset
   if (!is.null(search_wmo)) df_soundings.subset <- subset(df_soundings,
-                                                           df_soundings$wmo == search_wmo)
+                                                          df_soundings$wmo == search_wmo)
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
