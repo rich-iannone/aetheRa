@@ -35,8 +35,7 @@ get.sounding.data <- function(start_date,
                               station_wban_wmo = NULL,
                               output_file_path = "working",
                               output_file_name = "FSL-Sounding.txt",
-                              details_in_file_name = TRUE
-){
+                              details_in_file_name = TRUE){
   
   # Include require statements
   require(RCurl)
