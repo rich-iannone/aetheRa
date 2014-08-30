@@ -10,7 +10,7 @@
 #' @param output_file_path the output file path for the retrieved sounding data can be specified here by using "working", which sets the path to the current working directory, or, by specifying an absolute path.
 #' @param output_file_name the desired filename for the retrieved sounding data, including an extension such as ".txt" or ".dat". The default is "FSL-Sounding.txt", so, not modifying this argument over several uses (especially in conjunction with a "FALSE" setting for the 'details_in_file_name' argument) may result in overwriting previously generated files.
 #' @param details_in_file_name incorporates details about the sounding data into the filename. Set to "TRUE" by default to provide self-describing filenames and reducing the risk of overwriting files. Setting to "FALSE" strictly uses the filename specified in the 'output_file_name' argument.
-#' @export get.sounding.data
+#' @export get_sounding_data
 #' @examples
 #' \dontrun{
 #' # Get all FSL sounding data for the station with WBAN 99999 and
