@@ -20,7 +20,7 @@
 #' sounding_station_subset <- select.sounding.station(search_country = CA)
 #'}
 
-select.sounding.station <- function(id_by_wban_wmo = NULL,
+select_sounding_station <- function(id_by_wban_wmo = NULL,
                                     search_station_name = NULL,
                                     search_init = NULL,
                                     search_wban = NULL,
