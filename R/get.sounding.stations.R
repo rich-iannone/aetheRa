@@ -106,13 +106,13 @@ get.sounding.stations <- function(){
   # Return object
   return(df_soundings)
   
-  # Assign object to global environment
-  assign("df_soundings", df_soundings, envir = .GlobalEnv)
-  
-  # Add notification that data was downloaded and assigned to the global workspace
-  if (exists("df_soundings")) {
-    print(paste("Sounding information was downloaded and assigned as object 'df_soundings'."))
-  }
-  
-  # Close function
+#   # Assign object to global environment
+#   assign("df_soundings", df_soundings, envir = .GlobalEnv)
+#   
+#   # Add notification that data was downloaded and assigned to the global workspace
+#   if (exists("df_soundings")) {
+#     print(paste("Sounding information was downloaded and assigned as object 'df_soundings'."))
+#   }
+#   
+#   # Close function
 }
