@@ -1,3 +1,25 @@
+#' Search for and select a sounding station
+#' @description Filter and select a sounding station from a larger collection.
+#' @param id_by_wban_wmo using the combination of WBAN and WMO numbers (with a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO), it is possible to uniquely identify a sounding station. When searching with this keyword, all other arguments for which values were supplied will be disregarded.
+#' @param search_station_name supplying search text in the form of a string will filter the list of available sounding stations and provide feedback on which stations were found. When searching with this keyword, all other arguments for which values were supplied will be disregarded.
+#' @param search_init 
+#' @param search_wban 
+#' @param search_wmo 
+#' @param search_prov_state 
+#' @param search_country 
+#' @param lower_lat 
+#' @param upper_lat 
+#' @param lower_lon 
+#' @param upper_lon 
+#' @param lower_elev 
+#' @param upper_elev 
+#' @export select.sounding.station
+#' @examples
+#' \dontrun{
+#' # Get a subset of sounding stations in Canada
+#' sounding_station_subset <- select.sounding.station(search_country = CA)
+#'}
+
 select.sounding.station <- function(id_by_wban_wmo = NULL,
                                     search_station_name = NULL,
                                     search_init = NULL,
