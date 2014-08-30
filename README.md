@@ -4,7 +4,7 @@ AetheRa allows you to acquire and work with upper air data. Discover where the d
 
 ## Installation
 
-Easy installation of aetheRa from GitHub is possible with the `devtools` package:
+Installation of AetheRa from GitHub can be done with the `devtools` package:
 
 ```coffee
 require(devtools)
