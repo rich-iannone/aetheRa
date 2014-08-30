@@ -7,7 +7,7 @@
 #' all_soundings <- get.sounding.stations()
 #'}
 
-get.sounding.stations <- function(){
+get_sounding_stations <- function(){
   
   # Include require statements
   require(RCurl)
