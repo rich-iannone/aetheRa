@@ -3,13 +3,15 @@
 \alias{select_sounding_station}
 \title{Search for and select a sounding station}
 \usage{
-select_sounding_station(id_by_wban_wmo = NULL, search_station_name = NULL,
-  search_init = NULL, search_wban = NULL, search_wmo = NULL,
-  search_prov_state = NULL, search_country = NULL, lower_lat = NULL,
-  upper_lat = NULL, lower_lon = NULL, upper_lon = NULL,
-  lower_elev = NULL, upper_elev = NULL)
+select_sounding_station(stations_df, id_by_wban_wmo = NULL,
+  search_station_name = NULL, search_init = NULL, search_wban = NULL,
+  search_wmo = NULL, search_prov_state = NULL, search_country = NULL,
+  lower_lat = NULL, upper_lat = NULL, lower_lon = NULL,
+  upper_lon = NULL, lower_elev = NULL, upper_elev = NULL)
 }
 \arguments{
+\item{stations_df}{a data frame containing identification and location parameters for sounding stations.}
+
 \item{id_by_wban_wmo}{using the combination of WBAN and WMO numbers (with a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO), it is possible to uniquely identify a sounding station. When searching with this keyword, all other arguments for which values were supplied will be disregarded.}
 
 \item{search_station_name}{supplying search text in the form of a string will filter the list of available sounding stations and provide feedback on which stations were found. When searching with this keyword, all other arguments for which values were supplied will be disregarded.}
