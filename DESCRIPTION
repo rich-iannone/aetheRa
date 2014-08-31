@@ -1,8 +1,8 @@
 Package: aetheRa
 Type: Package
-Title: A set of tools for acquiring and working with upper air data.
-Version: 0.1
-Date: 2013-12-30
+Title: Tools to acquire and work with upper air data.
+Version: 0.2
+Date: 2014-08-30
 Author: Richard Iannone <riannone@me.com>
 Maintainer: Richard Iannone <riannone@me.com>
 Description: These functions allow you to perform retrieve upper air radiosonde
