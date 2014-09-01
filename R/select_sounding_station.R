@@ -14,6 +14,7 @@
 #' @param upper_lon 
 #' @param lower_elev 
 #' @param upper_elev 
+#' @param print_stations if set to TRUE, a returned data frame with 100 or less entries will be printed to the console.
 #' @export select_sounding_station
 #' @examples
 #' \dontrun{
