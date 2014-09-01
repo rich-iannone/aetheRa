@@ -1,5 +1,6 @@
 #' Search for and select a sounding station
 #' @description Filter and select a sounding station from a larger collection.
+#' @param stations_df a data frame containing identification and location parameters for sounding stations. 
 #' @param id_by_wban_wmo using the combination of WBAN and WMO numbers (with a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO), it is possible to uniquely identify a sounding station. When searching with this keyword, all other arguments for which values were supplied will be disregarded.
 #' @param search_station_name supplying search text in the form of a string will filter the list of available sounding stations and provide feedback on which stations were found. When searching with this keyword, all other arguments for which values were supplied will be disregarded.
 #' @param search_init 
