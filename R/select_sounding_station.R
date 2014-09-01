@@ -36,6 +36,9 @@ select_sounding_station <- function(stations_df,
                                     upper_elev = NULL,
                                     print_stations = TRUE){
   
+  # Search the data frame for a station name 
+  if(!is.null(search_station_name)){
+    list_of_station_names <- tolower(stations_df$station_name)
     for (i in 1:length(list_of_station_names)){
       if (i == 1) matches <- mat.or.vec(nr = length(list_of_station_names), nc = 1)
       matches[i] <- grepl(tolower(search_station_name),
