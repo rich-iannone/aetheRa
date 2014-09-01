@@ -20,7 +20,8 @@
 #' sounding_station_subset <- select_sounding_station(search_country = CA)
 #'}
 
-select_sounding_station <- function(id_by_wban_wmo = NULL,
+select_sounding_station <- function(stations_df,
+                                    id_by_wban_wmo = NULL,
                                     search_station_name = NULL,
                                     search_init = NULL,
                                     search_wban = NULL,
@@ -32,7 +33,8 @@ select_sounding_station <- function(id_by_wban_wmo = NULL,
                                     lower_lon = NULL,
                                     upper_lon = NULL,
                                     lower_elev = NULL,
-                                    upper_elev = NULL){
+                                    upper_elev = NULL,
+                                    print_stations = TRUE){
   
   
   # Check for existence of 'df_soundings' object, created by the
