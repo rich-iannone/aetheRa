@@ -55,7 +55,6 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  
   if (!is.null(search_station_name)){
     if (sum(matches) > 100){
       return(paste("A total of ", sum(matches),
@@ -98,7 +97,6 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  # Initial subset
   if (!is.null(id_by_wban_wmo)){
     stations_df.subset <- subset(stations_df,
                                  stations_df$wban ==
@@ -144,8 +142,6 @@ select_sounding_station <- function(stations_df,
   }
   
   # If a search by 'init' is requested, subset the stations data frame
-  
-  # Initial subset
   if (!is.null(search_init)) df_soundings.subset <- subset(df_soundings,
                                                            df_soundings$init == search_init)
   
@@ -184,11 +180,7 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  #####
   # If a search by 'wban' is requested, subset the stations data frame
-  ####
-  
-  # Initial subset
   if (!is.null(search_wban)) df_soundings.subset <- subset(df_soundings,
                                                            df_soundings$wban == search_wban)
   
@@ -230,11 +222,7 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  #####
   # If a search by 'wmo' is requested, subset the stations data frame
-  ####
-  
-  # Initial subset
   if (!is.null(search_wmo)) df_soundings.subset <- subset(df_soundings,
                                                           df_soundings$wmo == search_wmo)
   
@@ -277,12 +265,8 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  #####
   # If a search by 'prov/state' and/or 'country' is requested, subset the
   # stations data frame
-  ####
-  
-  # Initial subset
   if (!is.null(search_prov_state) & is.null(search_country)) {
     df_soundings.subset <- subset(df_soundings, df_soundings$prov_state == search_prov_state)
   } else if (is.null(search_prov_state) & !is.null(search_country)) {
@@ -331,11 +315,8 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  #####
+
   # If a search by bounding box is requested, subset the stations data frame
-  ####
-  
-  # Initial subset
   if (!is.null(lower_lat) & !is.null(upper_lat) &
         !is.null(lower_lon) & !is.null(upper_lon)) {
     df_soundings.subset <- subset(df_soundings,
@@ -387,8 +368,6 @@ select_sounding_station <- function(stations_df,
   }
   
   # If a search by elevation is requested, subset the stations data frame
-  
-  # Initial subset
   if (!is.null(lower_elev) & is.null(upper_elev)){
     stations_df.subset <- subset(stations_df, stations_df$elev >= lower_elev)
   } else if (is.null(lower_elev) & !is.null(upper_elev)){
