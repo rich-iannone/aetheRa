@@ -184,8 +184,9 @@ select_sounding_station <- function(stations_df,
   }
   
   # If a search by 'wban' is requested, subset the stations data frame
-  if (!is.null(search_wban)) df_soundings.subset <- subset(df_soundings,
-                                                           df_soundings$wban == search_wban)
+  if (!is.null(search_wban)){
+    stations_df.subset <- subset(stations_df,
+                                 stations_df$wban == search_wban)}
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
