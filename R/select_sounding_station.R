@@ -80,11 +80,12 @@ select_sounding_station <- function(stations_df,
         if (j == 1) stations_df.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
         if (matches[j] == 1) stations_df.subset <- rbind(stations_df.subset, stations_df[j,])
       }
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The target station is now available with the following ",
-                   "identifiers: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+      
+      print(paste("The target station is now available with the following ",
+                  "identifiers: wmo ",
+                  target_station$wmo, ", wban ", target_station$wban,
+                  " (", target_station$station_name, ")", sep = ''))
+      return(stations_df.subset)
     }
   }
   
@@ -119,14 +120,14 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-  if (!is.null(id_by_wban_wmo) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The target station is now available with the following ",
-                   "identifiers: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+  if (!is.null(id_by_wban_wmo)){
+    if (nrow(stations_df.subset) == 1){
+      
+      print(paste("The target station is now available with the following ",
+                  "identifiers: wmo ",
+                  target_station$wmo, ", wban ", target_station$wban,
+                  " (", target_station$station_name, ")", sep = ''))
+      print(stations_df.subset)
     }
   }
   
@@ -212,14 +213,14 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-  if (!is.null(search_wban) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The following station was identified and set ",
-                   "as the target station: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+  if (!is.null(search_wban)){
+    if (nrow(stations_df.subset) == 1){
+      
+      print(paste("The following station was identified and set ",
+                  "as the target station: wmo ",
+                  target_station$wmo, ", wban ", target_station$wban,
+                  " (", target_station$station_name, ")", sep = ''))
+      return(stations_df.subset)
     }
   }
   
@@ -258,14 +259,15 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-  if (!is.null(search_wmo) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The following station was identified and set ",
-                   "as the target station: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+  if (!is.null(search_wmo)){
+    if (nrow(stations_df.subset) == 1){
+      
+      print(paste("The following station was identified and set ",
+                  "as the target station: wmo ",
+                  target_station$wmo, ", wban ", target_station$wban,
+                  " (", target_station$station_name, ")", sep = ''))
+      return(stations_df.subset)
+      
     }
   }
   
@@ -312,14 +314,15 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-  if (!is.null(search_prov_state) | !is.null(search_country) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The following station was identified and set ",
+  if (!is.null(search_prov_state) | !is.null(search_country)){
+    if (nrow(stations_df.subset) == 1){
+
+      print(paste("The following station was identified and set ",
                    "as the target station: wmo ",
                    target_station$wmo, ", wban ", target_station$wban,
                    " (", target_station$station_name, ")", sep = ''))
+      return(stations_df.subset)
+      
     }
   }
   
