@@ -13,14 +13,7 @@ process_sounding_stations <- function(sounding_data){
   # Include require statements
   require(RCurl)
   require(stringr)
-  
-  # Check for existance of 'sounding_data' object, created by the
-  # 'get.sounding.data' function; if the object doesn't exist, stop the function
-  # with a message
-  if (!exists("sounding_data")) {
-  stop("Sounding data is not available. Use the 'get.sounding.data' function")
-  }
-  
+    
   # Determine number of soundings in file, necessary for initialization of list object
   # Check for equal numbers of header lines (254, 1, 2, and 3)
   soundings_254 <- length(grep(pattern = "^    254", x = sounding_data))
