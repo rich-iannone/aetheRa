@@ -149,8 +149,9 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
-    if (nrow(df_soundings.subset) == 0) {
-      return(paste("No stations were identified from this search"))
+  if (!is.null(search_init)){
+    if (nrow(stations_df.subset) == 0){
+      stop("No stations were identified from this search")
     }
   }
   
