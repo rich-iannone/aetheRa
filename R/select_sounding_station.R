@@ -49,36 +49,36 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  if (!is.null(search_station_name)) {
-    if (max(unique(matches)) < 1 & sum(matches) == 0) {
+  if (!is.null(search_station_name)){
+    if (max(unique(matches)) < 1 & sum(matches) == 0){
       stop("The search resulted in no matches.")
     }
   }
   
   
-  if (!is.null(search_station_name)) {
-    if (sum(matches) > 100) {
+  if (!is.null(search_station_name)){
+    if (sum(matches) > 100){
       return(paste("A total of ", sum(matches),
                    " stations were identified from this search",
                    sep = ''))
     }
   }
   
-  if (!is.null(search_station_name)) {
-    if (sum(matches) > 1 & sum(matches) <= 100) {
-      for (j in 1:length(matches)) {
-        if (j == 1) df_soundings.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
-        if (matches[j] == 1) df_soundings.subset <- rbind(df_soundings.subset, df_soundings[j,])
+  if (!is.null(search_station_name)){
+    if (sum(matches) > 1 & sum(matches) <= 100){
+      for (j in 1:length(matches)){
+        if (j == 1) stations_df.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
+        if (matches[j] == 1) stations_df.subset <- rbind(stations_df.subset, stations_df[j,])
       }
       return(df_soundings.subset)
     }
   }
   
-  if (!is.null(search_station_name)) {
-    if (sum(matches) == 1) {
-      for (j in 1:length(matches)) {
-        if (j == 1) df_soundings.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
-        if (matches[j] == 1) df_soundings.subset <- rbind(df_soundings.subset, df_soundings[j,])
+  if (!is.null(search_station_name)){
+    if (sum(matches) == 1){
+      for (j in 1:length(matches)){
+        if (j == 1) stations_df.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
+        if (matches[j] == 1) stations_df.subset <- rbind(stations_df.subset, stations_df[j,])
       }
       assign("target_station", df_soundings.subset, envir = .GlobalEnv)
       return(paste("The target station is now available with the following ",
@@ -94,25 +94,23 @@ select_sounding_station <- function(stations_df,
   
   # Stop the function if the supplied search string for 'id_by_wban_wmo' is not
   # properly formed
-  if (!is.null(id_by_wban_wmo)) {
-    if (regexpr("^[0-9]+?-[0-9]+?$", id_by_wban_wmo)[1] != 1) {
+  if (!is.null(id_by_wban_wmo)){
+    if (regexpr("^[0-9]+?-[0-9]+?$", id_by_wban_wmo)[1] != 1){
       stop("Use a string in the form of 'XXXXX-YYYYY' in the order of WBAN and WMO")
     }
   }
   
   # Initial subset
-  if (!is.null(id_by_wban_wmo)) {
-    df_soundings.subset <- subset(df_soundings,
-                                  df_soundings$wban ==
-                                    strsplit(id_by_wban_wmo, "-")[[1]][[1]] &
-                                    df_soundings$wmo ==
-                                    strsplit(id_by_wban_wmo, "-")[[1]][[2]])
+  if (!is.null(id_by_wban_wmo)){
+    stations_df.subset <- subset(stations_df,
+                                 stations_df$wban ==
+                                   strsplit(id_by_wban_wmo, "-")[[1]][[1]] &
+                                   stations_df$wmo ==
+                                   strsplit(id_by_wban_wmo, "-")[[1]][[2]])
   }
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
-  if (!is.null(id_by_wban_wmo) &
-        exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) == 0) {
       return(paste("No stations were identified."))
     }
@@ -138,15 +136,15 @@ select_sounding_station <- function(stations_df,
   
   # Check that only one of the search parameters of 'search_init', 'search_wban',
   # or 'search_wmo' are used; otherwise stop function and advise to only one of these
-  if (!is.null(search_init) & !is.null(search_wban)) {
+  if (!is.null(search_init) & !is.null(search_wban)){
     stop("Only use one of 'search_init', 'search_wban', or 'search_wmo' search parameters")
   }
   
-  if (!is.null(search_wban) & !is.null(search_wmo)) {
+  if (!is.null(search_wban) & !is.null(search_wmo)){
     stop("Only use one of 'search_init', 'search_wban', or 'search_wmo' search parameters")
   }
   
-  if (!is.null(search_wmo) & !is.null(search_init)) {
+  if (!is.null(search_wmo) & !is.null(search_init)){
     stop("Only use one of 'search_init', 'search_wban', or 'search_wmo' search parameters")
   }
   
@@ -161,8 +159,6 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
-  if (!is.null(search_init) &
-        exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) == 0) {
       return(paste("No stations were identified from this search"))
     }
@@ -171,8 +167,6 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-  if (!is.null(search_init) &
-        exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) == 1) {
       assign("target_station", df_soundings.subset, envir = .GlobalEnv)
       return(paste("The following station was identified and set ",
@@ -184,9 +178,6 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
-  if (!is.null(search_init) &
-        exists("df_soundings.subset")) {
     if (nrow(df_soundings.subset) > 100) {
       return(paste("A total of ", nrow(df_soundings.subset),
                    " stations were identified from this search",
