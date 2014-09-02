@@ -80,7 +80,7 @@ get_sounding_data <- function(stations_df = NULL,
                                           sep = '')
   
   # Get a current list of sounding stations
-  df_soundings <- get.sounding.stations()
+  df_soundings <- get_sounding_stations()
   
   # Get Station information
   if (is.null(station_number) & is.null(station_wban_wmo)) {
