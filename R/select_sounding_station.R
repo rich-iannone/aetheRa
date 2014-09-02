@@ -144,8 +144,8 @@ select_sounding_station <- function(stations_df,
   }
   
   # If a search by 'init' is requested, subset the stations data frame
-  if (!is.null(search_init)) df_soundings.subset <- subset(df_soundings,
-                                                           df_soundings$init == search_init)
+  if (!is.null(search_init)) stations_df.subset <- subset(stations_df,
+                                                          stations_df$init == search_init)
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
