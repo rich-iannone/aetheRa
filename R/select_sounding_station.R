@@ -212,13 +212,12 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
-  if (!is.null(search_wban) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) > 100) {
-      return(paste("A total of ", nrow(df_soundings.subset),
-                   " stations were identified from this search",
-                   sep = ''))
+  # If the generated subset contains 2-100 records, return 'stations_df.subset' 
+  if (!is.null(search_wban)){
+    if (nrow(stations_df.subset) > 100){
+      print(paste("A total of ", nrow(stations_df.subset),
+                  " stations were identified from this search",
+                  sep = ''))
     }
     if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
       return(df_soundings.subset)
@@ -231,10 +230,9 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
-  if (!is.null(search_wmo) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 0) {
-      return(paste("No stations were identified from this search"))
+  if (!is.null(search_wmo)){
+    if (nrow(stations_df.subset) == 0){
+      stop("No stations were identified from this search")
     }
   }
   
@@ -255,13 +253,12 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
-  if (!is.null(search_wmo) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) > 100) {
-      return(paste("A total of ", nrow(df_soundings.subset),
-                   " stations were identified from this search",
-                   sep = ''))
+  # If the generated subset contains 2-100 records, return 'stations_df.subset' 
+  if (!is.null(search_wmo)){
+    if (nrow(stations_df.subset) > 100){
+      print(paste("A total of ", nrow(stations_df.subset),
+                  " stations were identified from this search",
+                  sep = ''))
     }
     if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
       return(df_soundings.subset)
@@ -282,10 +279,9 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
-  if (!is.null(search_prov_state) | !is.null(search_country) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 0) {
-      return(paste("No stations were identified from this search"))
+  if (!is.null(search_prov_state) | !is.null(search_country)){
+    if (nrow(stations_df.subset) == 0){
+      stop("No stations were identified from this search")
     }
   }
   
@@ -332,10 +328,9 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_lon) & !is.null(upper_lon) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 0) {
-      return(paste("No stations were identified from this search"))
+        !is.null(lower_lon) & !is.null(upper_lon)){
+    if (nrow(stations_df.subset) == 0){
+      stop("No stations were identified from this search")
     }
   }
   
