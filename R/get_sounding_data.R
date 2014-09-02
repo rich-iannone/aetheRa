@@ -26,7 +26,8 @@
 #'                                    details_in_file_name = TRUE)
 #'}
 
-get_sounding_data <- function(start_date,
+get_sounding_data <- function(stations_df = NULL,
+                              start_date,
                               end_date,
                               hour_type = "0z,12z",
                               level_type = "all",
