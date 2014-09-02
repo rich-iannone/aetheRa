@@ -43,6 +43,10 @@ get_sounding_data <- function(stations_df = NULL,
   require(RCurl)
   require(stringr)
     
+  # If 'stations_df' supplied, choose only the first row of it by default
+  if (!is.null("stations_df")){
+    stations_df <- stations_df[1,]
+  }
   
   # Get formatted beginning date
   bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '') 
