@@ -177,13 +177,5 @@ get_sounding_data <- function(stations_df = NULL,
   
   # Return the 'sounding_data' object
   return(sounding_data)
-  
-  # Assign object to global environment
-  assign("sounding_data", sounding_data, envir = .GlobalEnv)
-  
-  # Add notification that data was downloaded and assigned to the global workspace
-  if (exists("sounding_data")) {
-    print(paste("Sounding data was downloaded and assigned as object 'sounding_data'."))
-  }
-  
+    
 }
