@@ -14,6 +14,18 @@
 #' @export get_sounding_data
 #' @examples
 #' \dontrun{
+#' # Get FSL sounding data for a station record stored in the data frame 'station'
+#' # for the year 2012
+#' sounding_data <- get_sounding_data(stations_df = station,
+#'                                    start_date = "2012-01-01",
+#'                                    end_date = "2012-12-31",
+#'                                    hour_type = "all",
+#'                                    level_type = "all",
+#'                                    wind_units = "tenths_ms",
+#'                                    output_file_path = "working",
+#'                                    output_file_name = "FSL-Sounding.txt",
+#'                                    details_in_file_name = TRUE)
+#'                                    
 #' # Get all FSL sounding data for the station with WBAN 99999 and
 #  # WMO 01001 (Jan Mayen) for the year 2012
 #' sounding_data <- get_sounding_data(start_date = "2012-01-01",
