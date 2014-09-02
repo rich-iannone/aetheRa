@@ -82,8 +82,8 @@ select_sounding_station <- function(stations_df,
       
       print(paste("The target station is now available with the following ",
                   "identifiers: wmo ",
-                  stations_df$wmo, ", wban ", stations_df$wban,
-                  " (", stations_df$station_name, ")", sep = ''))
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                  " (", stations_df.subset$station_name, ")", sep = ''))
       return(stations_df.subset)
     }
   }
