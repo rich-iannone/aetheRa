@@ -219,14 +219,14 @@ select_sounding_station <- function(stations_df,
                   " stations were identified from this search",
                   sep = ''))
     }
-    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
-      return(df_soundings.subset)
+    if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
+      print(stations_df.subset)
     }
   }
   
   # If a search by 'wmo' is requested, subset the stations data frame
-  if (!is.null(search_wmo)) df_soundings.subset <- subset(df_soundings,
-                                                          df_soundings$wmo == search_wmo)
+  if (!is.null(search_wmo)) stations_df.subset <- subset(stations_df,
+                                                         stations_df$wmo == search_wmo)
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
@@ -260,21 +260,21 @@ select_sounding_station <- function(stations_df,
                   " stations were identified from this search",
                   sep = ''))
     }
-    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
-      return(df_soundings.subset)
+    if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
+      print(stations_df.subset)
     }
   }
   
   # If a search by 'prov/state' and/or 'country' is requested, subset the
   # stations data frame
-  if (!is.null(search_prov_state) & is.null(search_country)) {
-    df_soundings.subset <- subset(df_soundings, df_soundings$prov_state == search_prov_state)
-  } else if (is.null(search_prov_state) & !is.null(search_country)) {
-    df_soundings.subset <- subset(df_soundings, df_soundings$country == search_country)
-  } else if (!is.null(search_prov_state) & !is.null(search_country)) {
-    df_soundings.subset <- subset(df_soundings,
-                                  df_soundings$prov_state == search_prov_state &
-                                    df_soundings$country == search_country)
+  if (!is.null(search_prov_state) & is.null(search_country)){
+    stations_df.subset <- subset(stations_df, stations_df$prov_state == search_prov_state)
+  } else if (is.null(search_prov_state) & !is.null(search_country)){
+    stations_df.subset <- subset(stations_df, stations_df$country == search_country)
+  } else if (!is.null(search_prov_state) & !is.null(search_country)){
+    stations_df.subset <- subset(stations_df,
+                                 stations_df$prov_state == search_prov_state &
+                                   stations_df$country == search_country)
   }
   
   # If a subset was generated and is of zero length, return notification that
@@ -317,12 +317,12 @@ select_sounding_station <- function(stations_df,
 
   # If a search by bounding box is requested, subset the stations data frame
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_lon) & !is.null(upper_lon)) {
-    df_soundings.subset <- subset(df_soundings,
-                                  df_soundings$lat >= lower_lat &
-                                    df_soundings$lat <= upper_lat &
-                                    df_soundings$lon >= lower_lon &
-                                    df_soundings$lon <= upper_lon)
+        !is.null(lower_lon) & !is.null(upper_lon)){
+    stations_df.subset <- subset(stations_df,
+                                 stations_df$lat >= lower_lat &
+                                   stations_df$lat <= upper_lat &
+                                   stations_df$lon >= lower_lon &
+                                   stations_df$lon <= upper_lon)
   }
   
   # If a subset was generated and is of zero length, return notification that
