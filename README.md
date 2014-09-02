@@ -68,6 +68,24 @@ high_soundings <- select_sounding_station(all_soundings,
                                           upper_elev = 5000)
 ```
 
+To obtain the sounding data, use the `get_sounding_data` function by supplying the data frame that contains the subset of sounding sites (generated with call to `select_sounding_station`). The sounding data is obtained between supplied beginning and ending dates.
+
+Note that station data will be supplied for the station in only the first row of the data frame specified in the `stations_df` argument. Thus, it is best to generate the data frame object with only a single record. This is typically done with a call to `select_sounding_station` that specifies either the name of the sounding site (using the `search_station_name` argument) or the set of station identifiers (using the `id_by_wban_wmo` argument).
+
+Here is an example that downloads sounding observations from the Quillayute, WA station for the year 2012, saving to the file 'FSL-Sounding.txt':
+
+```R
+Quillayute_data <- get_sounding_data(stations_df = Quillayute_sounding,
+                                     start_date = "2012-01-01",
+                                     end_date = "2013-01-01",
+                                     hour_type = "all",
+                                     level_type = "all",
+                                     wind_units = "tenths_ms",
+                                     output_file_path = "working",
+                                     output_file_name = "FSL-Sounding.txt",
+                                     details_in_file_name = TRUE)
+```
+
 ### Future Additions
 
 - create a visualization of the sounding data for specific days or periods
