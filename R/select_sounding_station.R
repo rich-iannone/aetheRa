@@ -89,6 +89,7 @@ select_sounding_station <- function(stations_df,
   }
   
   
+  # Select a station using the combination of WBAN and WMO numbers
   # Stop the function if the supplied search string for 'id_by_wban_wmo' is not
   # properly formed
   if (!is.null(id_by_wban_wmo)){
