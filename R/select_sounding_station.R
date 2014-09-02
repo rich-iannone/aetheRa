@@ -124,7 +124,7 @@ select_sounding_station <- function(stations_df,
                   "identifiers: wmo ",
                   stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
                   " (", stations_df.subset$station_name, ")", sep = ''))
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
