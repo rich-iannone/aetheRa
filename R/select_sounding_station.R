@@ -70,7 +70,7 @@ select_sounding_station <- function(stations_df,
         if (j == 1) stations_df.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
         if (matches[j] == 1) stations_df.subset <- rbind(stations_df.subset, stations_df[j,])
       }
-      return(df_soundings.subset)
+      print(stations_df.subset)
     }
   }
   
@@ -167,24 +167,28 @@ select_sounding_station <- function(stations_df,
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The following station was identified and set ",
-                   "as the target station: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+  if (!is.null(search_init)){
+    if (nrow(stations_df.subset) == 1){
+      
+      print(paste("The following station was identified and set ",
+                  "as the target station: wmo ",
+                  target_station$wmo, ", wban ", target_station$wban,
+                  " (", target_station$station_name, ")", sep = ''))
+      print(stations_df.subset)
     }
   }
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-    if (nrow(df_soundings.subset) > 100) {
-      return(paste("A total of ", nrow(df_soundings.subset),
-                   " stations were identified from this search",
-                   sep = ''))
+  # If the generated subset contains 2-100 records, print 'stations_df.subset' 
+  if (!is.null(search_init)){
+    if (nrow(stations_df.subset) > 100){
+      print(paste("A total of ", nrow(stations_df.subset),
+                  " stations were identified from this search",
+                  sep = ''))
     }
-    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
-      return(df_soundings.subset)
+    if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
+      print(stations_df.subset)
     }
   }
   
@@ -321,16 +325,15 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
-  if (!is.null(search_prov_state) | !is.null(search_country) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) > 100) {
-      return(paste("A total of ", nrow(df_soundings.subset),
+  # If the generated subset contains 2-100 records, return 'stations_df.subset' 
+  if (!is.null(search_prov_state) | !is.null(search_country)){
+    if (nrow(stations_df.subset) > 100){
+      print(paste("A total of ", nrow(stations_df.subset),
                    " stations were identified from this search",
                    sep = ''))
     }
-    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
-      return(df_soundings.subset)
+    if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
+      print(stations_df.subset)
     }
   }
   
@@ -362,14 +365,15 @@ select_sounding_station <- function(stations_df,
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_lon) & !is.null(upper_lon) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The following station was identified and set ",
+        !is.null(lower_lon) & !is.null(upper_lon)){
+    if (nrow(stations_df.subset) == 1){
+
+      print(paste("The following station was identified and set ",
                    "as the target station: wmo ",
                    target_station$wmo, ", wban ", target_station$wban,
                    " (", target_station$station_name, ")", sep = ''))
+      return(stations_df.subset)
+      
     }
   }
   
@@ -377,68 +381,64 @@ select_sounding_station <- function(stations_df,
   # stating the number of stations found (but don't return a df object)
   # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
   if (!is.null(lower_lat) & !is.null(upper_lat) &
-        !is.null(lower_lon) & !is.null(upper_lon) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) > 100) {
-      return(paste("A total of ", nrow(df_soundings.subset),
+        !is.null(lower_lon) & !is.null(upper_lon)){
+    if (nrow(stations_df.subset) > 100){
+      print(paste("A total of ", nrow(stations_df.subset),
                    " stations were identified from this search",
                    sep = ''))
     }
-    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
-      return(df_soundings.subset)
+    if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
+      print(stations_df.subset)
     }
   }
   
-  #####
   # If a search by elevation is requested, subset the stations data frame
-  ####
   
   # Initial subset
-  if (!is.null(lower_elev) & is.null(upper_elev)) {
-    df_soundings.subset <- subset(df_soundings, df_soundings$elev >= lower_elev)
-  } else if (is.null(lower_elev) & !is.null(upper_elev)) {
-    df_soundings.subset <- subset(df_soundings, df_soundings$elev <= upper_elev)
-  } else if (!is.null(lower_elev) & !is.null(upper_elev)) {
-    df_soundings.subset <- subset(df_soundings,
-                                  df_soundings$elev >= lower_elev &
-                                    df_soundings$elev <= upper_elev)
+  if (!is.null(lower_elev) & is.null(upper_elev)){
+    stations_df.subset <- subset(stations_df, stations_df$elev >= lower_elev)
+  } else if (is.null(lower_elev) & !is.null(upper_elev)){
+    stations_df.subset <- subset(stations_df, stations_df$elev <= upper_elev)
+  } else if (!is.null(lower_elev) & !is.null(upper_elev)){
+    stations_df.subset <- subset(stations_df,
+                                 stations_df$elev >= lower_elev &
+                                   stations_df$elev <= upper_elev)
   }
   
   # If a subset was generated and is of zero length, return notification that
   # no stations were found
-  if (!is.null(lower_elev) | !is.null(upper_elev) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 0) {
-      return(paste("No stations were identified from this search"))
+  if (!is.null(lower_elev) | !is.null(upper_elev)){
+    if (nrow(stations_df.subset) == 0){
+      stop("No stations were identified from this search")
     }
   }
   
   # If a subset was generated and is of single length, then a match has occurred
   # Need to assign the subset as 'target_station' in the global environment and
   # return a notification that a match was found
-  if (!is.null(lower_elev) | !is.null(upper_elev) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) == 1) {
-      assign("target_station", df_soundings.subset, envir = .GlobalEnv)
-      return(paste("The following station was identified and set ",
+  if (!is.null(lower_elev) | !is.null(upper_elev)){
+    if (nrow(stations_df.subset) == 1){
+
+      print(paste("The following station was identified and set ",
                    "as the target station: wmo ",
                    target_station$wmo, ", wban ", target_station$wban,
                    " (", target_station$station_name, ")", sep = ''))
+      return(stations_df.subset)
+      
     }
   }
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
-  if (!is.null(lower_elev) | !is.null(upper_elev) &
-        exists("df_soundings.subset")) {
-    if (nrow(df_soundings.subset) > 100) {
-      return(paste("A total of ", nrow(df_soundings.subset),
+  # If the generated subset contains 2-100 records, return 'stations_df.subset' 
+  if (!is.null(lower_elev) | !is.null(upper_elev)){
+    if (nrow(stations_df.subset) > 100){
+      print(paste("A total of ", nrow(stations_df.subset),
                    " stations were identified from this search",
                    sep = ''))
     }
-    if (nrow(df_soundings.subset) > 1 & nrow(df_soundings.subset) <= 100) {
-      return(df_soundings.subset)
+    if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
+      print(stations_df.subset)
     }
   }
   
