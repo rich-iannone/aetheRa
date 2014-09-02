@@ -1,5 +1,6 @@
 #' Get sounding data
 #' @description Get upper air sounding data as a text file in FSL format.
+#' @param stations_df a data frame containing identification and location parameters for sounding stations. 
 #' @param start_date the starting date of the sounding data request in the format "YYYY-MM-DD". The earliest sounding for the specified date will be included in the request.
 #' @param end_date the end date of the sounding data request in the format "YYYY-MM-DD". The last sounding for the specified date will be included in the request.
 #' @param hour_type the types of hours to be supplied in the returned dataset. The default is "0z,12z", which includes sounding data from launches near 12:00 UTC and those near 24:00 UTC. The option "all" provides all of the soundings available from the dataset, and the options "12z" and "0z" provide data from those soundings launched near 12:00 UTC or 24:00 UTC, respectively.
