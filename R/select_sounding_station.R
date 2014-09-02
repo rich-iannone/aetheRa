@@ -89,9 +89,6 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  #####
-  # Select a station using the combination of WBAN and WMO numbers
-  ##### 
   
   # Stop the function if the supplied search string for 'id_by_wban_wmo' is not
   # properly formed
@@ -131,10 +128,7 @@ select_sounding_station <- function(stations_df,
     }
   }
   
-  #####
   # Search the data frame using the search parameters
-  #####
-  
   # Check that only one of the search parameters of 'search_init', 'search_wban',
   # or 'search_wmo' are used; otherwise stop function and advise to only one of these
   if (!is.null(search_init) & !is.null(search_wban)){
@@ -149,10 +143,7 @@ select_sounding_station <- function(stations_df,
     stop("Only use one of 'search_init', 'search_wban', or 'search_wmo' search parameters")
   }
   
-  
-  #####
   # If a search by 'init' is requested, subset the stations data frame
-  ####
   
   # Initial subset
   if (!is.null(search_init)) df_soundings.subset <- subset(df_soundings,
