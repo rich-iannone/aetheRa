@@ -355,7 +355,7 @@ select_sounding_station <- function(stations_df,
   
   # If a subset was generated that contains >100 records, return a notification
   # stating the number of stations found (but don't return a df object)
-  # If the generated subset contains 2-100 records, return 'df_soundings.subset' 
+  # If the generated subset contains 2-100 records, return 'stations_df.subset' 
   if (!is.null(lower_lat) & !is.null(upper_lat) &
         !is.null(lower_lon) & !is.null(upper_lon)){
     if (nrow(stations_df.subset) > 100){
