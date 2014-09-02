@@ -82,8 +82,8 @@ select_sounding_station <- function(stations_df,
       
       print(paste("The target station is now available with the following ",
                   "identifiers: wmo ",
-                  target_station$wmo, ", wban ", target_station$wban,
-                  " (", target_station$station_name, ")", sep = ''))
+                  stations_df$wmo, ", wban ", stations_df$wban,
+                  " (", stations_df$station_name, ")", sep = ''))
       return(stations_df.subset)
     }
   }
@@ -122,8 +122,8 @@ select_sounding_station <- function(stations_df,
       
       print(paste("The target station is now available with the following ",
                   "identifiers: wmo ",
-                  target_station$wmo, ", wban ", target_station$wban,
-                  " (", target_station$station_name, ")", sep = ''))
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                  " (", stations_df.subset$station_name, ")", sep = ''))
       print(stations_df.subset)
     }
   }
@@ -163,9 +163,9 @@ select_sounding_station <- function(stations_df,
       
       print(paste("The following station was identified and set ",
                   "as the target station: wmo ",
-                  target_station$wmo, ", wban ", target_station$wban,
-                  " (", target_station$station_name, ")", sep = ''))
-      print(stations_df.subset)
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                  " (", stations_df.subset$station_name, ")", sep = ''))
+      return(stations_df.subset)
     }
   }
   
@@ -204,8 +204,8 @@ select_sounding_station <- function(stations_df,
       
       print(paste("The following station was identified and set ",
                   "as the target station: wmo ",
-                  target_station$wmo, ", wban ", target_station$wban,
-                  " (", target_station$station_name, ")", sep = ''))
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                  " (", stations_df.subset$station_name, ")", sep = ''))
       return(stations_df.subset)
     }
   }
@@ -244,8 +244,8 @@ select_sounding_station <- function(stations_df,
       
       print(paste("The following station was identified and set ",
                   "as the target station: wmo ",
-                  target_station$wmo, ", wban ", target_station$wban,
-                  " (", target_station$station_name, ")", sep = ''))
+                  stations_df$wmo, ", wban ", stations_df$wban,
+                  " (", stations_df$station_name, ")", sep = ''))
       return(stations_df.subset)
       
     }
@@ -293,8 +293,8 @@ select_sounding_station <- function(stations_df,
 
       print(paste("The following station was identified and set ",
                    "as the target station: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                   " (", stations_df.subset$station_name, ")", sep = ''))
       return(stations_df.subset)
       
     }
@@ -343,8 +343,8 @@ select_sounding_station <- function(stations_df,
 
       print(paste("The following station was identified and set ",
                    "as the target station: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                   " (", stations_df.subset$station_name, ")", sep = ''))
       return(stations_df.subset)
       
     }
@@ -392,8 +392,8 @@ select_sounding_station <- function(stations_df,
 
       print(paste("The following station was identified and set ",
                    "as the target station: wmo ",
-                   target_station$wmo, ", wban ", target_station$wban,
-                   " (", target_station$station_name, ")", sep = ''))
+                  stations_df.subset$wmo, ", wban ", stations_df.subset$wban,
+                   " (", stations_df.subset$station_name, ")", sep = ''))
       return(stations_df.subset)
       
     }
