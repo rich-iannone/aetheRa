@@ -41,42 +41,6 @@ get_sounding_data <- function(start_date,
   require(RCurl)
   require(stringr)
     
-  # Test parameter inputs
-  #
-  #
-#   start_date <- "2013-01-01"
-#   end_date <- "2013-12-31"
-#
-#   #hour_type <- "all"
-#   # hour_type <- "0z"
-#   # hour_type <- "12z"
-#   hour_type <- "0z,12z"
-#   
-#   level_type <- "all"
-#   # level_type <- "mandatory"
-#   # level_type <- "mandatory_and_significant"
-#
-#   wind_units <- "tenths_ms"
-#   
-#   # Request station by line number in station list
-#   station_number <- 1000
-#   
-#   # Request station by WBAN-WMO pair
-#   station_wban_wmo <- NULL
-#   #station_list_wban_wmo <- "94151-71203"
-#   
-#   # Set the output file path
-#   output_file_path <- "working"
-#   #output_file_path <- "/Users/riannone/Dropbox/R Projects/"
-#   
-#   # Output file name
-#   output_file_name <- "FSL-Sounding.txt"
-#   
-#   # Append details to file name
-#   details_in_file_name <- TRUE
-  #
-  #
-  ####
   
   # Get formatted beginning date
   bdate <- paste(str_replace_all(start_date, "-", ""), "00", sep = '') 
