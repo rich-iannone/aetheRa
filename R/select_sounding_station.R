@@ -69,7 +69,7 @@ select_sounding_station <- function(stations_df,
         if (j == 1) stations_df.subset <- as.data.frame(mat.or.vec(nr = 0, nc = 0))
         if (matches[j] == 1) stations_df.subset <- rbind(stations_df.subset, stations_df[j,])
       }
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
@@ -179,7 +179,7 @@ select_sounding_station <- function(stations_df,
                   sep = ''))
     }
     if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
@@ -220,7 +220,7 @@ select_sounding_station <- function(stations_df,
                   sep = ''))
     }
     if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
@@ -261,7 +261,7 @@ select_sounding_station <- function(stations_df,
                   sep = ''))
     }
     if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
@@ -310,7 +310,7 @@ select_sounding_station <- function(stations_df,
                    sep = ''))
     }
     if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
@@ -361,7 +361,7 @@ select_sounding_station <- function(stations_df,
                    sep = ''))
     }
     if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
@@ -409,7 +409,7 @@ select_sounding_station <- function(stations_df,
                    sep = ''))
     }
     if (nrow(stations_df.subset) > 1 & nrow(stations_df.subset) <= 100){
-      print(stations_df.subset)
+      return(stations_df.subset)
     }
   }
   
