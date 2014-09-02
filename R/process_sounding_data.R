@@ -1,5 +1,6 @@
 #' Process sounding data
 #' @description Using upper air sounding data, create a list object that can be used for analysis.
+#' @param sounding_data a character vector that is produced from the 'get_sounding_data' function.
 #' @export process_sounding_stations
 #' @examples
 #' \dontrun{
