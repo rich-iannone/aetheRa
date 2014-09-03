@@ -1,7 +1,7 @@
 #' Export a CALMET UP.DAT file
 #' @description Using upper air sounding data, create an UP.DAT input file for the CALMET model.
 #' @param processed_sounding_data the return object from the `get_sounding_data` function.
-#' @param export_all_times providing TRUE for this will create an UP.DAT file with time bounds matching those in the 'sounding_list' list object (created after use of the 'process.sounding.data' function). The default is set to FALSE, in which case values for the arguments 'start_date', 'start_hour', 'end_date', and 'end_hour' must be supplied.
+#' @param export_all_times providing TRUE for this will create an UP.DAT file with time bounds matching those in the 'processed_sounding_data' list object (created after use of the 'process.sounding.data' function). The default is set to FALSE, in which case values for the arguments 'start_date', 'start_hour', 'end_date', and 'end_hour' must be supplied.
 #' @param start_date a starting date intended for the UP.DAT output should be supplied if 'export_all_times' is set to FALSE (the default). The date should be supplied as a string in the format "YYYY-MM-DD".
 #' @param start_hour a starting hour must accompany the entry for 'start_date'. With 'export_all_times' set to FALSE, explicit dates and times for starting and ending periods must be set. The format for 'start_hour' is numeric.
 #' @param end_date an ending date intended for the UP.DAT output should be supplied if 'export_all_times' is set to FALSE (the default). The date should be supplied as a string in the format "YYYY-MM-DD".
@@ -10,7 +10,7 @@
 #' @export export_data_to_CALMET
 #' @examples
 #' \dontrun{
-#' # After generating the 'sounding_list' object (from use of the 'process.sounding.data' function),
+#' # After generating the 'processed_sounding_data' object (from use of the 'process.sounding.data' function),
 #' # generate a CALMET UP.DAT file for 2013, constraining the output to the 500 hPa pressure level
 #' export_data_to_CALMET(processed_sounding_data = the_processed_sounding_data,
 #'                       export_all_times = FALSE
@@ -65,23 +65,23 @@ export_data_to_CALMET <- function(processed_sounding_data,
   rm(start_date, start_hour, end_date, end_hour)
   
   # Determine whether the selected time interval is available in the
-  # 'sounding_list' list of data frames; if not, stop function with message
-  sounding_list_start_date_time <- 
-    ISOdatetime(year = sounding_list[[1]][[1]][[4]],
-                month = sounding_list[[1]][[1]][[3]],
-                day = sounding_list[[1]][[1]][[2]],
-                hour = sounding_list[[1]][[1]][[1]],
+  # 'processed_sounding_data' list of data frames; if not, stop function with message
+  processed_sounding_data_start_date_time <- 
+    ISOdatetime(year = processed_sounding_data[[1]][[1]][[4]],
+                month = processed_sounding_data[[1]][[1]][[3]],
+                day = processed_sounding_data[[1]][[1]][[2]],
+                hour = processed_sounding_data[[1]][[1]][[1]],
                 min = 0, sec = 0, tz = "GMT")
   
-  sounding_list_end_date_time <-
-    ISOdatetime(year = sounding_list[[length(sounding_list)]][[1]][[4]],
-                month = sounding_list[[length(sounding_list)]][[1]][[3]],
-                day = sounding_list[[length(sounding_list)]][[1]][[2]],
-                hour = sounding_list[[length(sounding_list)]][[1]][[1]],
+  processed_sounding_data_end_date_time <-
+    ISOdatetime(year = processed_sounding_data[[length(processed_sounding_data)]][[1]][[4]],
+                month = processed_sounding_data[[length(processed_sounding_data)]][[1]][[3]],
+                day = processed_sounding_data[[length(processed_sounding_data)]][[1]][[2]],
+                hour = processed_sounding_data[[length(processed_sounding_data)]][[1]][[1]],
                 min = 0, sec = 0, tz = "GMT")
   
-  if (req_start_date_time < sounding_list_start_date_time |
-        req_end_date_time > sounding_list_end_date_time  ) {
+  if (req_start_date_time < processed_sounding_data_start_date_time |
+        req_end_date_time > processed_sounding_data_end_date_time  ) {
     stop("Requested time frame for data is not entirely available in processed dataset.")
   }
   
@@ -91,51 +91,51 @@ export_data_to_CALMET <- function(processed_sounding_data,
   
   # Find how many values of the list need to be trimmed from the beginning then
   # trim those list items and save as a new list object
-  for (i in 1:length(sounding_list)) {
-    if (i == 1) above_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
+  for (i in 1:length(processed_sounding_data)) {
+    if (i == 1) above_req_date_time <- mat.or.vec(nr = length(processed_sounding_data), nc = 1)
     above_req_date_time[i] <- 
-      ISOdatetime(year = sounding_list[[i]][[1]][[4]],
-                  month = sounding_list[[i]][[1]][[3]],
-                  day = sounding_list[[i]][[1]][[2]],
-                  hour = sounding_list[[i]][[1]][[1]],
+      ISOdatetime(year = processed_sounding_data[[i]][[1]][[4]],
+                  month = processed_sounding_data[[i]][[1]][[3]],
+                  day = processed_sounding_data[[i]][[1]][[2]],
+                  hour = processed_sounding_data[[i]][[1]][[1]],
                   min = 0, sec = 0, tz = "GMT") >= req_start_date_time
     trim_number_from_left <- length(above_req_date_time) -
       sum(above_req_date_time, na.rm = TRUE)   
   }
 
   # Find how many values of the list need to be trimmed from the end   
-  for (i in 1:length(sounding_list)) {
-    if (i == 1) below_req_date_time <- mat.or.vec(nr = length(sounding_list), nc = 1)
+  for (i in 1:length(processed_sounding_data)) {
+    if (i == 1) below_req_date_time <- mat.or.vec(nr = length(processed_sounding_data), nc = 1)
     below_req_date_time[i] <- 
-      ISOdatetime(year = sounding_list[[i]][[1]][[4]],
-                  month = sounding_list[[i]][[1]][[3]],
-                  day = sounding_list[[i]][[1]][[2]],
-                  hour = sounding_list[[i]][[1]][[1]],
+      ISOdatetime(year = processed_sounding_data[[i]][[1]][[4]],
+                  month = processed_sounding_data[[i]][[1]][[3]],
+                  day = processed_sounding_data[[i]][[1]][[2]],
+                  hour = processed_sounding_data[[i]][[1]][[1]],
                   min = 0, sec = 0, tz = "GMT") <= req_end_date_time
     trim_number_from_right <- length(below_req_date_time) -
       sum(below_req_date_time, na.rm = TRUE)
   }
   
-  # Make copy of sounding_list before trimming it
-  trimmed_sounding_list <- sounding_list
+  # Make copy of processed_sounding_data before trimming it
+  trimmed_processed_sounding_data <- processed_sounding_data
   
-  # Trim the 'trimmed_sounding_list' object at the beginning
+  # Trim the 'trimmed_processed_sounding_data' object at the beginning
   if (trim_number_from_left > 0) {
     for (i in 1:trim_number_from_left) {
-      trimmed_sounding_list[1] <- NULL
+      trimmed_processed_sounding_data[1] <- NULL
     }
   }
   
-  # Trim the 'trimmed_sounding_list' object at the end
+  # Trim the 'trimmed_processed_sounding_data' object at the end
   if (trim_number_from_right > 0) {
     for (i in 1:trim_number_from_right) {
-      trimmed_sounding_list[length(trimmed_sounding_list)] <- NULL
+      trimmed_processed_sounding_data[length(trimmed_processed_sounding_data)] <- NULL
     }
   }
   
   # Remove objects from global environment
   rm(req_start_date_time, req_end_date_time,
-     sounding_list_start_date_time, sounding_list_end_date_time,
+     processed_sounding_data_start_date_time, processed_sounding_data_end_date_time,
     trim_number_from_left, trim_number_from_right,
      above_req_date_time, below_req_date_time)
   
@@ -160,19 +160,19 @@ export_data_to_CALMET <- function(processed_sounding_data,
   rm(header_1, header_2, header_3, header_4, header_5, header_6)
   
   # Start loop for header line
-  for (i in 1:length(trimmed_sounding_list)) {
+  for (i in 1:length(trimmed_processed_sounding_data)) {
     header_line <- 
       paste(header_line_constant,
-            trimmed_sounding_list[[i]][[1]][[4]],
-            formatC(trimmed_sounding_list[[i]][[1]][[3]], # month
+            trimmed_processed_sounding_data[[i]][[1]][[4]],
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[3]], # month
                     width = 2, flag = " "),
-            formatC(trimmed_sounding_list[[i]][[1]][[2]], # day
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[2]], # day
                     width = 2, flag = " "),
-            formatC(trimmed_sounding_list[[i]][[1]][[1]], # hour
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[1]], # hour
                     width = 2, flag = " "),
-            formatC(trimmed_sounding_list[[i]][[1]][[14]] - 3, # lines
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[14]] - 3, # lines
                     width = 7, flag = " "),
-            formatC(trimmed_sounding_list[[i]][[1]][[14]] - 3, # lines
+            formatC(trimmed_processed_sounding_data[[i]][[1]][[14]] - 3, # lines
                     width = 33, flag = " "),
             sep = '')
     
@@ -180,35 +180,35 @@ export_data_to_CALMET <- function(processed_sounding_data,
     cat(header_line, sep = "\n", file = "test_output.txt", append = TRUE)
     
     # Start loop for data lines
-    for (j in 1:nrow(trimmed_sounding_list[[i]][[2]])) {
-      if (j == 1) data_line <- mat.or.vec(nr = nrow(trimmed_sounding_list[[i]][[2]]),
+    for (j in 1:nrow(trimmed_processed_sounding_data[[i]][[2]])) {
+      if (j == 1) data_line <- mat.or.vec(nr = nrow(trimmed_processed_sounding_data[[i]][[2]]),
                                           nc = 1) 
       data_line[j] <-
-        paste(formatC(trimmed_sounding_list[[i]][[2]][[j, 2]], # pressure
+        paste(formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 2]], # pressure
                       width = 9, format = "f", digits = 1, flag = " "),
               ",",
-              formatC(trimmed_sounding_list[[i]][[2]][[j, 3]], # height
+              formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 3]], # height
                       width = 6, format = "f", digits = 0, flag = " "),
               ",",
-              ifelse(trimmed_sounding_list[[i]][[2]][[j, 4]] > 900, 
+              ifelse(trimmed_processed_sounding_data[[i]][[2]][[j, 4]] > 900, 
                      formatC(999.9, width = 5, format = "f",
                              digits = 1, flag = " "),
-                     formatC(trimmed_sounding_list[[i]][[2]][[j, 4]] + 273, # temp
+                     formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 4]] + 273, # temp
                              width = 2, format = "f", digits = 1, flag = " ")),
               ",",
-              ifelse(trimmed_sounding_list[[i]][[2]][[j, 6]] > 900,
+              ifelse(trimmed_processed_sounding_data[[i]][[2]][[j, 6]] > 900,
                      formatC(999, width = 3, format = "f",
                              digits = 0, flag = " "),
-                     formatC(trimmed_sounding_list[[i]][[2]][[j, 6]], # WD
+                     formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 6]], # WD
                              width = 3, format = "f", digits = 0, flag = " ")),
               ",",
-              ifelse(trimmed_sounding_list[[i]][[2]][[j, 7]] > 900,
+              ifelse(trimmed_processed_sounding_data[[i]][[2]][[j, 7]] > 900,
                      formatC(999.9, width = 5, format = "f",
                              digits = 1, flag = " "),                
-                     formatC(trimmed_sounding_list[[i]][[2]][[j, 7]], # WS
+                     formatC(trimmed_processed_sounding_data[[i]][[2]][[j, 7]], # WS
                              width = 5, format = "f", 
                              digits = 1, flag = " ")),
-              ifelse(j == nrow(trimmed_sounding_list[[i]][[2]]), "", ","),
+              ifelse(j == nrow(trimmed_processed_sounding_data[[i]][[2]]), "", ","),
               sep = '')
            
       # Close loop for data lines
@@ -216,7 +216,7 @@ export_data_to_CALMET <- function(processed_sounding_data,
     
     # Scan for entries with negative height and delete such records
     for (k in 1:length(data_line)) {
-      if (trimmed_sounding_list[[i]][[2]][[k, 3]] < 0) data_line <- data_line[-k]
+      if (trimmed_processed_sounding_data[[i]][[2]][[k, 3]] < 0) data_line <- data_line[-k]
     }
     
     # Write data lines to file
