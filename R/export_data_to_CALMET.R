@@ -151,6 +151,22 @@ export_data_to_CALMET <- function(processed_sounding_data,
   # previous period ~24 h earlier
   ####
   
+  # Append additional details to the output file name if request for such details is TRUE
+  if (details_in_file_name == TRUE) {
+    if (str_detect(output_file_name, fixed(".txt"))) {
+      output_file_name <- str_replace(output_file_name, fixed(".txt"), "")
+    }
+    output_file_name <-
+      paste(output_file_name, "__",
+            start_date, "-",
+            start_hour, "-",
+            end_date, "-",
+            end_hour, "-",
+            top_pressure_level,
+            ".txt",
+            sep = "")
+  }
+  
   # Generate a file for writing
   cat(file = "test_output.txt")
   
