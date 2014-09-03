@@ -27,7 +27,9 @@ export_data_to_CALMET <- function(processed_sounding_data,
                                   start_hour,
                                   end_date,
                                   end_hour,
-                                  top_pressure_level){
+                                  top_pressure_level,
+                                  output_file_name = "up.txt",
+                                  details_in_file_name = TRUE){
   
   # Include require statements
   require(RCurl)
