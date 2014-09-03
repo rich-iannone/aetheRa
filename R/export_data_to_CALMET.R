@@ -1,5 +1,6 @@
 #' Export a CALMET UP.DAT file
 #' @description Using upper air sounding data, create an UP.DAT input file for the CALMET model.
+#' @param processed_sounding_data the return object from the `get_sounding_data` function.
 #' @param export_all_times providing TRUE for this will create an UP.DAT file with time bounds matching those in the 'sounding_list' list object (created after use of the 'process.sounding.data' function). The default is set to FALSE, in which case values for the arguments 'start_date', 'start_hour', 'end_date', and 'end_hour' must be supplied.
 #' @param start_date a starting date intended for the UP.DAT output should be supplied if 'export_all_times' is set to FALSE (the default). The date should be supplied as a string in the format "YYYY-MM-DD".
 #' @param start_hour a starting hour must accompany the entry for 'start_date'. With 'export_all_times' set to FALSE, explicit dates and times for starting and ending periods must be set. The format for 'start_hour' is numeric.
