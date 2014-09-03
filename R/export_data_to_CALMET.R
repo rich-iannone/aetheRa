@@ -168,11 +168,11 @@ export_data_to_CALMET <- function(processed_sounding_data,
   }
   
   # Generate a file for writing
-  cat(file = "test_output.txt")
+  cat(file = output_file_name)
   
   # Add header to top of output file
   cat(header_1, header_2, header_3, header_4, header_5, header_6,
-      sep = "\n", file = "test_output.txt", append = TRUE)
+      sep = "\n", file = output_file_name, append = TRUE)
   
   # Remove objects from global environment
   rm(header_1, header_2, header_3, header_4, header_5, header_6)
@@ -195,7 +195,7 @@ export_data_to_CALMET <- function(processed_sounding_data,
             sep = '')
     
     # Write header_line to file
-    cat(header_line, sep = "\n", file = "test_output.txt", append = TRUE)
+    cat(header_line, sep = "\n", file = output_file_name, append = TRUE)
     
     # Start loop for data lines
     for (j in 1:nrow(trimmed_processed_sounding_data[[i]][[2]])) {
@@ -238,7 +238,7 @@ export_data_to_CALMET <- function(processed_sounding_data,
     }
     
     # Write data lines to file
-    cat(data_line, sep = "\n", file = "test_output.txt", append = TRUE)
+    cat(data_line, sep = "\n", file = output_file_name, append = TRUE)
 
     # Close loop for header line
   }
