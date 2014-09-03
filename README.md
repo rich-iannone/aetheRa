@@ -86,6 +86,12 @@ Quillayute_data <- get_sounding_data(stations_df = Quillayute_sounding,
                                      details_in_file_name = TRUE)
 ```
 
+Now the data should be processed. That can be done with the `process_sounding_data` function, using the return object from the `get_sounding_data` function as the sole argument.
+
+```R
+Quillayute_data_processed <- process_sounding_data(Quillayute_data)
+```
+
 ### Future Additions
 
 - create a visualization of the sounding data for specific days or periods
