@@ -7,7 +7,8 @@ select_sounding_station(stations_df, id_by_wban_wmo = NULL,
   search_station_name = NULL, search_init = NULL, search_wban = NULL,
   search_wmo = NULL, search_prov_state = NULL, search_country = NULL,
   lower_lat = NULL, upper_lat = NULL, lower_lon = NULL,
-  upper_lon = NULL, lower_elev = NULL, upper_elev = NULL)
+  upper_lon = NULL, lower_elev = NULL, upper_elev = NULL,
+  print_stations = TRUE)
 }
 \arguments{
 \item{stations_df}{a data frame containing identification and location parameters for sounding stations.}
@@ -37,6 +38,8 @@ select_sounding_station(stations_df, id_by_wban_wmo = NULL,
 \item{lower_elev}{}
 
 \item{upper_elev}{}
+
+\item{print_stations}{if set to TRUE, a returned data frame with 100 or less entries will be printed to the console.}
 }
 \description{
 Filter and select a sounding station from a larger collection.
