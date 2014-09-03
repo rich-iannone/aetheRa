@@ -3,12 +3,15 @@
 \alias{get_sounding_data}
 \title{Get sounding data}
 \usage{
-get_sounding_data(start_date, end_date, hour_type = "0z,12z",
-  level_type = "all", wind_units = "tenths_ms", station_number = NULL,
-  station_wban_wmo = NULL, output_file_path = "working",
-  output_file_name = "FSL-Sounding.txt", details_in_file_name = TRUE)
+get_sounding_data(stations_df = NULL, start_date, end_date,
+  hour_type = "0z,12z", level_type = "all", wind_units = "tenths_ms",
+  station_number = NULL, station_wban_wmo = NULL,
+  output_file_path = "working", output_file_name = "FSL-Sounding.txt",
+  details_in_file_name = TRUE)
 }
 \arguments{
+\item{stations_df}{a data frame containing identification and location parameters for sounding stations.}
+
 \item{start_date}{the starting date of the sounding data request in the format "YYYY-MM-DD". The earliest sounding for the specified date will be included in the request.}
 
 \item{end_date}{the end date of the sounding data request in the format "YYYY-MM-DD". The last sounding for the specified date will be included in the request.}
@@ -34,6 +37,18 @@ Get upper air sounding data as a text file in FSL format.
 }
 \examples{
 \dontrun{
+# Get FSL sounding data for a station record stored in the data frame 'station'
+# for the year 2012
+sounding_data <- get_sounding_data(stations_df = station,
+                                   start_date = "2012-01-01",
+                                   end_date = "2012-12-31",
+                                   hour_type = "all",
+                                   level_type = "all",
+                                   wind_units = "tenths_ms",
+                                   output_file_path = "working",
+                                   output_file_name = "FSL-Sounding.txt",
+                                   details_in_file_name = TRUE)
+
 # Get all FSL sounding data for the station with WBAN 99999 and
 sounding_data <- get_sounding_data(start_date = "2012-01-01",
                                    end_date = "2012-12-31",
