@@ -1,14 +1,14 @@
 #' Process sounding data
 #' @description Using upper air sounding data, create a list object that can be used for analysis.
 #' @param sounding_data a character vector that is produced from the 'get_sounding_data' function.
-#' @export process_sounding_stations
+#' @export process_sounding_data
 #' @examples
 #' \dontrun{
 #' # Process sounding data created by the 'get.sounding.data' function
-#' processed_data <- process_sounding_stations(sounding_data = the_sounding_data)
+#' processed_data <- process_sounding_data(sounding_data = the_sounding_data)
 #'}
 
-process_sounding_stations <- function(sounding_data){
+process_sounding_data <- function(sounding_data){
 
   # Include require statements
   require(RCurl)
