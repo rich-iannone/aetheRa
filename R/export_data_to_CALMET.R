@@ -33,14 +33,7 @@ export_data_to_CALMET <- function(processed_sounding_data,
   require(RCurl)
   require(stringr)
   require(lubridate)
-  
-  # Check for existance of 'sounding_list' object, created by the
-  # 'process.sounding.data' function; if the object doesn't exist, stop the function
-  # with a message
-  if (!exists("sounding_list")) {
-    stop("Processed sounding data is not available. Use the 'process.sounding.data' function")
-  }
-    
+      
   # Generate requested start and end POSIXct time objects
   req_start_date_time <- as.POSIXct(start_date, origin = "1970-01-01", tz = "GMT") +
     (start_hour * 3600)
