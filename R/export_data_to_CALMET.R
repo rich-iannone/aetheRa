@@ -19,7 +19,8 @@
 #'                       top_pressure_level = 500)
 #'}
 
-export_data_to_CALMET <- function(export_all_times = FALSE,
+export_data_to_CALMET <- function(processed_sounding_data,
+                                  export_all_times = FALSE,
                                   start_date,
                                   start_hour,
                                   end_date,
