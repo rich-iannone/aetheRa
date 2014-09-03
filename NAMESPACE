@@ -3,5 +3,5 @@
 export(export_data_to_CALMET)
 export(get_sounding_data)
 export(get_sounding_stations)
-export(process_sounding_stations)
+export(process_sounding_data)
 export(select_sounding_station)
