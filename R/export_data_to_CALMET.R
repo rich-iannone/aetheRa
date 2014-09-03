@@ -37,20 +37,7 @@ export_data_to_CALMET <- function(export_all_times = FALSE,
   if (!exists("sounding_list")) {
     stop("Processed sounding data is not available. Use the 'process.sounding.data' function")
   }
-  
-  # Test parameter inputs
-  #
-  #
-export_all_times <- FALSE
-start_date <- start_date
-start_hour <- start_hour
-end_date <- end_date
-end_hour <- end_hour
-#   top_pressure_level <- 500
-  #
-  #
-  ####
-  
+    
   # Generate requested start and end POSIXct time objects
   req_start_date_time <- as.POSIXct(start_date, origin = "1970-01-01", tz = "GMT") +
     (start_hour * 3600)
