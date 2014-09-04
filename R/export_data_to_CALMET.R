@@ -62,10 +62,7 @@ export_data_to_CALMET <- function(processed_sounding_data,
                     "    2    2",
                     sep = '')
   header_6 <- "F    F    F    F"
-  
-  # Remove objects from global environment
-  rm(start_date, start_hour, end_date, end_hour)
-  
+    
   # Determine whether the selected time interval is available in the
   # 'processed_sounding_data' list of data frames; if not, stop function with message
   processed_sounding_data_start_date_time <- 
