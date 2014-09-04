@@ -46,7 +46,7 @@ export_data_to_CALMET <- function(processed_sounding_data,
   # Generate header for UP.DAT file
   header_1 <- "UP.DAT          2.0             Header structure with coordinate parameters"
   header_2 <- "1"
-  header_3 <- "Produced using R"
+  header_3 <- "Produced using AetheRa"
   header_4 <- "NONE"
   header_5 <- paste(year(as.POSIXct(start_date, origin = "1970-01-01", tz = "GMT")),
                     "  ",
