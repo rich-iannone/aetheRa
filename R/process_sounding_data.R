@@ -162,6 +162,9 @@ process_sounding_data <- function(sounding_data){
     # Remove the 'data' object
     rm(data)
     
+    # Close all connections
+    closeAllConnections()
+    
     # Create a progress bar
     pb <- txtProgressBar(min = 1, max = length(sounding_data), style = 3)
     setTxtProgressBar(pb, i)
