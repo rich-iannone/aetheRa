@@ -77,7 +77,7 @@ Here is an example that downloads sounding observations from the Quillayute, WA 
 ```R
 Quillayute_data <- get_sounding_data(stations_df = Quillayute_sounding,
                                      start_date = "2012-01-01",
-                                     end_date = "2013-01-01",
+                                     end_date = "2012-02-01",
                                      hour_type = "all",
                                      level_type = "all",
                                      wind_units = "tenths_ms",
@@ -96,11 +96,11 @@ If you need CALMET-ready input from upper air data, the object created from the 
 
 ```R
 export_data_to_CALMET(processed_sounding_data = Quillayute_data_processed,
-                      export_all_times = FALSE
-                      start_date = "2012-01-01"
-                      start_hour = 0
-                      end_date = "2012-12-31"
-                      end_hour = 0
+                      export_all_times = FALSE,
+                      start_date = "2012-01-01",
+                      start_hour = 0,
+                      end_date = "2012-02-01",
+                      end_hour = 0,
                       top_pressure_level = 500)
 ```
 
