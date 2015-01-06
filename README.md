@@ -8,7 +8,7 @@ Installation of AetheRa from GitHub can be done with the `devtools` package:
 
 ```R
 require(devtools)
-install_github('aetheRa', 'rich-iannone')
+install_github('rich-iannone/aetheRa')
 ```
 
 ### Features
